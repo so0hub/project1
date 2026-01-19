@@ -27,7 +27,7 @@ const products = [
 ];
 
 
-const inventories = "inventories": [
+const inventories = [
     { "inventoryCode": "INV001", "productCode": "P001", "currentStock": 45, "status": "IN_STOCK", "updatedDate": "2024-12-15"},
     { "inventoryCode": "INV002", "productCode": "P002", "currentStock": 32, "status": "IN_STOCK", "updatedDate": "2024-12-18"},
     { "inventoryCode": "INV003", "productCode": "P003", "currentStock": 28, "status": "IN_STOCK", "updatedDate": "2024-12-20"},

@@ -1,0 +1,25 @@
+/* ================ 전체 ================ */
+
+*{ padding: 0px; margin: 0px; box-sizing: border-box;}
+li{ list-style-type: none;}
+a{ text-decoration: none; color: black;}
+
+/* ================ 폰트 ================ */
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7SUc.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+*{ font-family: 'Inter'; }
+
+/* ================ 헤더 ================ */
+
+
+
+
+
+/* ================ 본문 ================ */

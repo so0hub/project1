@@ -11,17 +11,34 @@
 <body>
    
     <div id="wrap">
-    <div id="product_top">
-        <h4 id="product_top_title">제품 재고</h4>
-        <h3 id="product_top_title2">제품명 검색</h3>
-        <input class="product_">
+    <div id="pdt_top">
+        <h4 id="pdt_top_title">제품 재고</h4>
+        <h3 id="pdt_top_title2">제품명 검색</h3>
+        <input class="pdt_search" placeholder="제품명을 입력하세요">
 
-    </div> <!--product_top END-->
+        <div id="pdt_name_search">
+            <table>
+                <thead>
+                    <tr>
+                        <th>제품명</th>
+                        <th>수량</th>
+                        <th>상태</th>
+                    </tr>
+                </thead>
 
-    <div id="product_bottom">
+                <tbody id="pdt_list_body">
+                    
+                </tbody>
+            </table>
+        </div> <!--pdt_name_search END-->
 
 
-    </div> <!--product_bottom END-->
+    </div> <!--pdt_top END-->
+
+    <div id="pdt_bottom">
+        <h4 id="pdt_bottom_title"></h4>
+
+    </div> <!--pdt_bottom END-->
 
     
      <script src='product.js'></script>

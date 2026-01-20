@@ -30,7 +30,7 @@ img{width: 15px; margin-right: 8px;} /*지워야 함*/
 #header > #header_inner{ 
     width: 1280px; margin: 0 auto; 
     display: flex; justify-content: space-between; align-items: center;
-    padding: 40px 0px;
+    padding: 25px 0px;
 }
 .h_logo{ width: 139px;}
 .h_center{
@@ -39,7 +39,7 @@ img{width: 15px; margin-right: 8px;} /*지워야 함*/
 .h_btn{
     border: solid 3px white;
     padding: 10px 20px; margin-right: 30px;
-    border-radius: 10px;
+    border-radius: 10px; font-size: 20px;
 }
 .h_btn:hover{
     border: solid 3px transparent;
@@ -103,6 +103,9 @@ img{width: 15px; margin-right: 8px;} /*지워야 함*/
 }
 .f_link > ul > li{
     margin-top: 5px;
+}
+.f_link > ul > li > a{
+    color: #E0E0E0; font-size: 15px;
 }
 .f_link > ul > li > h3{
     margin: 10px 0;

@@ -514,15 +514,6 @@ const categories = [
 ];
 
 
-const products = [
-    { "productCode": "P001", "productName": "Galaxy S24 Ultra", "brand": "Samsung", "price": 1450000, "image": "galaxy_s24_ultra.jpg", "categoryCode": "C01" },
-    { "productCode": "P002", "productName": "iPhone 15 Pro Max", "brand": "Apple", "price": 1500000, "image": "iphone_15_pro_max.jpg", "categoryCode": "C01" },
-    { "productCode": "P003", "productName": "Pixel 8 Pro", "brand": "Google", "price": 1180000, "image": "pixel_8_pro.jpg", "categoryCode": "C01" },
-    { "productCode": "P004", "productName": "Galaxy Z Fold 5", "brand": "Samsung", "price": 1420000, "image": "galaxy_z_fold_5.jpg", "categoryCode": "C01" },
-    { "productCode": "P005", "productName": "OnePlus 12", "brand": "OnePlus", "price": 950000, "image": "oneplus_12.jpg", "categoryCode": "C01" }
-];
-
-
 
 const inventories = [
     { "inventoryCode": "INV001", "productCode": "P001", "currentStock": 45, "status": "IN_STOCK", "updatedDate": "2024-12-15" },
@@ -858,6 +849,14 @@ const orderItems = [
     }
 ];
 
+const products = [
+    { "productCode": "P001", "productName": "Galaxy S24 Ultra", "brand": "Samsung", "price": 1450000, "image": "galaxy_s24_ultra.jpg", "categoryCode": "C01" },
+    { "productCode": "P002", "productName": "iPhone 15 Pro Max", "brand": "Apple", "price": 1500000, "image": "iphone_15_pro_max.jpg", "categoryCode": "C01" },
+    { "productCode": "P003", "productName": "Pixel 8 Pro", "brand": "Google", "price": 1180000, "image": "pixel_8_pro.jpg", "categoryCode": "C01" },
+    { "productCode": "P004", "productName": "Galaxy Z Fold 5", "brand": "Samsung", "price": 1420000, "image": "galaxy_z_fold_5.jpg", "categoryCode": "C01" },
+    { "productCode": "P005", "productName": "OnePlus 12", "brand": "OnePlus", "price": 950000, "image": "oneplus_12.jpg", "categoryCode": "C01" }
+];
+
 
 // [2] 기능 설계
 // 제품 재고 검색 영역 : 제품 목록
@@ -882,37 +881,39 @@ const orderItems = [
 
 // [3] 제품 영역 구현
 // [3-1] 재고 조회 함수
-function inventorySearch(){
+
+
+function inventorySearch() {
     // (1) 사용자가 입력한 제품명을 가져온다.
     const inputName = document.querySelector(".pNameInput").value;
 
-    // (2) products 장부에서 그 이름과 일치하는 데이터를 찾아 productCoude를 알아낸다.
+    // (2) products 장부에서 그 이름과 일치하는 데이터를 찾아 productCode를 알아낸다.
     let foundProduct = null;
-    for(let i = 0 ; i < products.length ; i++){
-        if(products[i].productName === inputName){
+    for (let i = 0; i < products.length; i++) {
+        if (products[i].productName === inputName) {
             foundProduct = products[i]; // 제품 찾음!
             break;
         } // if END
     } // for END
 
-    if(foundProduct == null){
+    if (foundProduct == null) {
         alert("해당 제품이 없습니다.");
         return;
     } // if END
 
     // (3) 찾은 코드로 inventories 장부로 가서 재고와 상태 찾기
     let foundInventory = null;
-    for(let j = 0 ; j < inventories.length ; j++){
+    for (let j = 0; j < inventories.length; j++) {
         // 제품 장부에서 찾은 코드와 재고 장부의 코드가 같은지 비교
-        if(inventories[j].productCode === foundProduct.productCode){
+        if (inventories[j].productCode === foundProduct.productCode) {
             foundInventory = inventories[j];
             break;
-            
+
         } // if END
     } // for END
 
     // 찾은 데이터를 출력함수로 던져주기
-    if(foundInventory != null){
+    if (foundInventory != null) {
         printResult(foundProduct.productName, foundInventory.currentStock, foundInventory.status);
     } else {
         alert("재고 정보가 없습니다.");
@@ -924,13 +925,69 @@ function inventorySearch(){
 
 // [3-2] 출력 함수
 // (4) 찾은 제품명 , 수량 , 상태를 화면에 출력한다.
-    function printResult(name,stock,status){
-        const tbody = document.querySelector("#pdt_list_body");
-        tbody.innerHTML = `
-        <tr>
-            <td>${name}</td>
-            <td>${stock}</td>
-            <td>${status}</td>
-        </tr>
-        `;
+printResult();
+function printResult() {
+    const tbody = document.querySelector("#pdt_list_body");
+    let html = ``;
+    for (let index = 0; index <= inventories.length - 1; index++) {
+        let inv = inventories[index];
+
+
+        //제품코드로 제품명으로 바꿈
+        let proname = "";
+
+        for (let index2=0; index2 <= products.length-1;index2++){
+            let pro = products[index2];
+            if(pro.productCode==inv.productCode){
+                proname = pro.productName
+                break;
+
+            }
+        }
+
+
+        // 영문재고를 한글로 바꿈
+        let statuskr = "";
+        if (inv.status === "IN_STOCK") {
+            statuskr = "재고있음";
+        }
+        else if (inv.status === "LOW_STOCK") {
+            statuskr = "품절임박";
+        }
+        else if (inv.status === "OUT_OF_STOCK") {
+            statuskr = "품절";
+        }
+        else { statuskr = inv.status; }
+
+
+        html += `         <tr>
+            <td>${proname}</td>
+            <td>${inv.currentStock}</td>
+            <td>${statuskr}</td>
+            <td><button onclick="stockUpdate('${inv.inventoryCode}')">수정</button></td>
+        </tr>`;
     }
+    tbody.innerHTML = html;
+
+}
+
+
+
+// [3-3] 수정 함수
+function stockUpdate(inventoryCode) {
+    for (let index = 0; index <= inventories.length - 1; index++) {
+        if (inventoryCode == inventories[index].inventoryCode) {
+            const newInventory = prompt("선택한 제품의 재고 수량을 입력하세요.(숫자만)");
+            inventories[index].currentStock = newInventory;
+            printResult();
+            break;
+        }
+
+        // 재고량에 따라 상태(품절여부)도 바꾸고 싶다 ㅠㅠ
+        if(inventories[index].currentStock == 0){
+            inventories[index].status = "OUT_OF_STOCK";}
+            else if(inventories[index].currentStock <= 5)
+                 {inventories[index].status="LOW_STOCK";}
+
+    
+}

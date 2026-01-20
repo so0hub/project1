@@ -1,0 +1,3778 @@
+{
+  "metadata": {
+    "created_at": "2026-01-20T08:49:07.189301",
+    "total_orders": 2000,
+    "total_items": 5194,
+    "date_range": {
+      "start": "2025-01-01",
+      "end": "2025-12-27"
+    }
+  },
+  "categories": [
+    {
+      "code": "C01",
+      "name": "Smartphone"
+    },
+    {
+      "code": "C02",
+      "name": "Laptop"
+    },
+    {
+      "code": "C03",
+      "name": "Mouse"
+    },
+    {
+      "code": "C04",
+      "name": "Keyboard"
+    }
+  ],
+  "products": [
+    {
+      "code": "P001",
+      "name": "Galaxy S24 Ultra",
+      "price": 1450000,
+      "cat": "C01"
+    },
+    {
+      "code": "P002",
+      "name": "iPhone 15 Pro Max",
+      "price": 1500000,
+      "cat": "C01"
+    },
+    {
+      "code": "P003",
+      "name": "Pixel 8 Pro",
+      "price": 1180000,
+      "cat": "C01"
+    },
+    {
+      "code": "P004",
+      "name": "MacBook Air M3",
+      "price": 1590000,
+      "cat": "C02"
+    },
+    {
+      "code": "P005",
+      "name": "LG Gram 16",
+      "price": 1450000,
+      "cat": "C02"
+    },
+    {
+      "code": "P006",
+      "name": "Logitech MX Master 3S",
+      "price": 129000,
+      "cat": "C03"
+    },
+    {
+      "code": "P007",
+      "name": "Razer DeathAdder V3",
+      "price": 99000,
+      "cat": "C03"
+    },
+    {
+      "code": "P008",
+      "name": "Keychron Q1 Pro",
+      "price": 249000,
+      "cat": "C04"
+    },
+    {
+      "code": "P009",
+      "name": "Apple Magic Keyboard",
+      "price": 119000,
+      "cat": "C04"
+    }
+  ],
+  "model_performance": {
+    "model_info": {
+      "model_type": "XGBClassifier",
+      "n_estimators": 200,
+      "learning_rate": 0.05,
+      "max_depth": 4,
+      "features_used": [
+        "age_group",
+        "price_scaled",
+        "quantity_scaled",
+        "gender_M",
+        "month_sin",
+        "month_cos",
+        "quarter",
+        "persona_type_A",
+        "persona_type_B",
+        "persona_type_C",
+        "persona_type_D"
+      ]
+    },
+    "accuracy": {
+      "top1_accuracy": 0.7401347449470644,
+      "top1_accuracy_percent": "74.01%",
+      "top2_accuracy": 1.0,
+      "top2_accuracy_percent": "100.00%"
+    },
+    "feature_importance": {
+      "age_group": 0.06541170924901962,
+      "price_scaled": 0.4822448790073395,
+      "quantity_scaled": 0.009071791544556618,
+      "gender_M": 0.015167614445090294,
+      "month_sin": 0.008885438553988934,
+      "month_cos": 0.009953100234270096,
+      "quarter": 0.011719844304025173,
+      "persona_type_A": 0.21543259918689728,
+      "persona_type_B": 0.032519951462745667,
+      "persona_type_C": 0.031989265233278275,
+      "persona_type_D": 0.1176038309931755
+    },
+    "dataset_info": {
+      "total_samples": 5194,
+      "train_samples": 4155,
+      "test_samples": 1039,
+      "num_features": 11,
+      "num_categories": 4
+    },
+    "confusion_matrix": [
+      [
+        194,
+        112,
+        0,
+        0
+      ],
+      [
+        78,
+        176,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        230,
+        30
+      ],
+      [
+        0,
+        0,
+        50,
+        169
+      ]
+    ]
+  },
+  "predictions": [
+    {
+      "sample_id": 0,
+      "customer_info": {
+        "gender": "F",
+        "age": 62,
+        "persona_type": "D"
+      },
+      "order_info": {
+        "order_code": "ORD0706",
+        "order_date": "2025-12-15",
+        "month": 12,
+        "product_purchased": "Razer DeathAdder V3",
+        "price": 89509.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.9976047277450562
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.0011874781921505928
+        }
+      ],
+      "actual_category": {
+        "code": "C03",
+        "name": "Mouse"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 1,
+      "customer_info": {
+        "gender": "F",
+        "age": 34,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD1580",
+        "order_date": "2025-02-05",
+        "month": 2,
+        "product_purchased": "iPhone 15 Pro Max",
+        "price": 1461374.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.5665651559829712
+        },
+        {
+          "rank": 2,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.4266052544116974
+        }
+      ],
+      "actual_category": {
+        "code": "C01",
+        "name": "Smartphone"
+      },
+      "is_correct_top1": false,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 2,
+      "customer_info": {
+        "gender": "M",
+        "age": 41,
+        "persona_type": "C"
+      },
+      "order_info": {
+        "order_code": "ORD1915",
+        "order_date": "2025-06-18",
+        "month": 6,
+        "product_purchased": "Razer DeathAdder V3",
+        "price": 92206.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.9849243760108948
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.010043550282716751
+        }
+      ],
+      "actual_category": {
+        "code": "C03",
+        "name": "Mouse"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 3,
+      "customer_info": {
+        "gender": "M",
+        "age": 40,
+        "persona_type": "C"
+      },
+      "order_info": {
+        "order_code": "ORD1747",
+        "order_date": "2025-01-06",
+        "month": 1,
+        "product_purchased": "MacBook Air M3",
+        "price": 1590656.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.620497465133667
+        },
+        {
+          "rank": 2,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.37292206287384033
+        }
+      ],
+      "actual_category": {
+        "code": "C02",
+        "name": "Laptop"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 4,
+      "customer_info": {
+        "gender": "M",
+        "age": 26,
+        "persona_type": "A"
+      },
+      "order_info": {
+        "order_code": "ORD0801",
+        "order_date": "2025-04-02",
+        "month": 4,
+        "product_purchased": "Razer DeathAdder V3",
+        "price": 103859.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.9954115748405457
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.003587971208617091
+        }
+      ],
+      "actual_category": {
+        "code": "C03",
+        "name": "Mouse"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 5,
+      "customer_info": {
+        "gender": "M",
+        "age": 21,
+        "persona_type": "A"
+      },
+      "order_info": {
+        "order_code": "ORD0198",
+        "order_date": "2025-08-03",
+        "month": 8,
+        "product_purchased": "Pixel 8 Pro",
+        "price": 1200986.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.9956733584403992
+        },
+        {
+          "rank": 2,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.0016000827308744192
+        }
+      ],
+      "actual_category": {
+        "code": "C01",
+        "name": "Smartphone"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 6,
+      "customer_info": {
+        "gender": "M",
+        "age": 42,
+        "persona_type": "C"
+      },
+      "order_info": {
+        "order_code": "ORD0435",
+        "order_date": "2025-01-28",
+        "month": 1,
+        "product_purchased": "Galaxy S24 Ultra",
+        "price": 1489383.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.6250698566436768
+        },
+        {
+          "rank": 2,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.36839351058006287
+        }
+      ],
+      "actual_category": {
+        "code": "C01",
+        "name": "Smartphone"
+      },
+      "is_correct_top1": false,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 7,
+      "customer_info": {
+        "gender": "M",
+        "age": 23,
+        "persona_type": "A"
+      },
+      "order_info": {
+        "order_code": "ORD1501",
+        "order_date": "2025-01-08",
+        "month": 1,
+        "product_purchased": "Razer DeathAdder V3",
+        "price": 93317.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.9970998764038086
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.0019229711033403873
+        }
+      ],
+      "actual_category": {
+        "code": "C03",
+        "name": "Mouse"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 8,
+      "customer_info": {
+        "gender": "F",
+        "age": 31,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD0726",
+        "order_date": "2025-08-25",
+        "month": 8,
+        "product_purchased": "MacBook Air M3",
+        "price": 1444383.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.5969744324684143
+        },
+        {
+          "rank": 2,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.39649590849876404
+        }
+      ],
+      "actual_category": {
+        "code": "C02",
+        "name": "Laptop"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 9,
+      "customer_info": {
+        "gender": "M",
+        "age": 40,
+        "persona_type": "C"
+      },
+      "order_info": {
+        "order_code": "ORD0388",
+        "order_date": "2025-12-10",
+        "month": 12,
+        "product_purchased": "MacBook Air M3",
+        "price": 1730095.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.994057297706604
+        },
+        {
+          "rank": 2,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.004857687279582024
+        }
+      ],
+      "actual_category": {
+        "code": "C02",
+        "name": "Laptop"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 10,
+      "customer_info": {
+        "gender": "M",
+        "age": 42,
+        "persona_type": "C"
+      },
+      "order_info": {
+        "order_code": "ORD0243",
+        "order_date": "2025-09-15",
+        "month": 9,
+        "product_purchased": "LG Gram 16",
+        "price": 1397623.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.6645181775093079
+        },
+        {
+          "rank": 2,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.32819926738739014
+        }
+      ],
+      "actual_category": {
+        "code": "C02",
+        "name": "Laptop"
+      },
+      "is_correct_top1": false,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 11,
+      "customer_info": {
+        "gender": "F",
+        "age": 32,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD1384",
+        "order_date": "2025-06-03",
+        "month": 6,
+        "product_purchased": "MacBook Air M3",
+        "price": 1636508.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.5029094815254211
+        },
+        {
+          "rank": 2,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.488486647605896
+        }
+      ],
+      "actual_category": {
+        "code": "C02",
+        "name": "Laptop"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 12,
+      "customer_info": {
+        "gender": "M",
+        "age": 20,
+        "persona_type": "A"
+      },
+      "order_info": {
+        "order_code": "ORD0499",
+        "order_date": "2025-05-23",
+        "month": 5,
+        "product_purchased": "iPhone 15 Pro Max",
+        "price": 1627010.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.6677506566047668
+        },
+        {
+          "rank": 2,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.31880995631217957
+        }
+      ],
+      "actual_category": {
+        "code": "C01",
+        "name": "Smartphone"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 13,
+      "customer_info": {
+        "gender": "M",
+        "age": 27,
+        "persona_type": "A"
+      },
+      "order_info": {
+        "order_code": "ORD0909",
+        "order_date": "2025-04-05",
+        "month": 4,
+        "product_purchased": "Razer DeathAdder V3",
+        "price": 94628.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.9954115748405457
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.003587971208617091
+        }
+      ],
+      "actual_category": {
+        "code": "C03",
+        "name": "Mouse"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 14,
+      "customer_info": {
+        "gender": "F",
+        "age": 50,
+        "persona_type": "D"
+      },
+      "order_info": {
+        "order_code": "ORD1499",
+        "order_date": "2025-08-27",
+        "month": 8,
+        "product_purchased": "Logitech MX Master 3S",
+        "price": 125471.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.7401852011680603
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.24713380634784698
+        }
+      ],
+      "actual_category": {
+        "code": "C03",
+        "name": "Mouse"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 15,
+      "customer_info": {
+        "gender": "F",
+        "age": 37,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD0026",
+        "order_date": "2025-02-08",
+        "month": 2,
+        "product_purchased": "Pixel 8 Pro",
+        "price": 1256064.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.9978964328765869
+        },
+        {
+          "rank": 2,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.0010556631023064256
+        }
+      ],
+      "actual_category": {
+        "code": "C01",
+        "name": "Smartphone"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 16,
+      "customer_info": {
+        "gender": "F",
+        "age": 62,
+        "persona_type": "D"
+      },
+      "order_info": {
+        "order_code": "ORD1211",
+        "order_date": "2025-09-14",
+        "month": 9,
+        "product_purchased": "Razer DeathAdder V3",
+        "price": 95738.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.9975487589836121
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.0013157706707715988
+        }
+      ],
+      "actual_category": {
+        "code": "C03",
+        "name": "Mouse"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 17,
+      "customer_info": {
+        "gender": "M",
+        "age": 24,
+        "persona_type": "A"
+      },
+      "order_info": {
+        "order_code": "ORD0900",
+        "order_date": "2025-08-13",
+        "month": 8,
+        "product_purchased": "Logitech MX Master 3S",
+        "price": 124712.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.5201371908187866
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.47128647565841675
+        }
+      ],
+      "actual_category": {
+        "code": "C03",
+        "name": "Mouse"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 18,
+      "customer_info": {
+        "gender": "M",
+        "age": 24,
+        "persona_type": "A"
+      },
+      "order_info": {
+        "order_code": "ORD0148",
+        "order_date": "2025-05-30",
+        "month": 5,
+        "product_purchased": "Logitech MX Master 3S",
+        "price": 116618.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.5893343091011047
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.40186822414398193
+        }
+      ],
+      "actual_category": {
+        "code": "C03",
+        "name": "Mouse"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 19,
+      "customer_info": {
+        "gender": "M",
+        "age": 41,
+        "persona_type": "C"
+      },
+      "order_info": {
+        "order_code": "ORD0986",
+        "order_date": "2025-11-18",
+        "month": 11,
+        "product_purchased": "Apple Magic Keyboard",
+        "price": 117890.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.6283586621284485
+        },
+        {
+          "rank": 2,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.3537929952144623
+        }
+      ],
+      "actual_category": {
+        "code": "C04",
+        "name": "Keyboard"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 20,
+      "customer_info": {
+        "gender": "F",
+        "age": 31,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD1441",
+        "order_date": "2025-08-12",
+        "month": 8,
+        "product_purchased": "Logitech MX Master 3S",
+        "price": 117621.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.5567529201507568
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.4240694046020508
+        }
+      ],
+      "actual_category": {
+        "code": "C03",
+        "name": "Mouse"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 21,
+      "customer_info": {
+        "gender": "F",
+        "age": 38,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD1717",
+        "order_date": "2025-01-17",
+        "month": 1,
+        "product_purchased": "Keychron Q1 Pro",
+        "price": 258890.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.9925455451011658
+        },
+        {
+          "rank": 2,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.0030317180790007114
+        }
+      ],
+      "actual_category": {
+        "code": "C04",
+        "name": "Keyboard"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 22,
+      "customer_info": {
+        "gender": "M",
+        "age": 23,
+        "persona_type": "A"
+      },
+      "order_info": {
+        "order_code": "ORD0630",
+        "order_date": "2025-02-08",
+        "month": 2,
+        "product_purchased": "Razer DeathAdder V3",
+        "price": 96879.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.9971867203712463
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.0019611686002463102
+        }
+      ],
+      "actual_category": {
+        "code": "C03",
+        "name": "Mouse"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 23,
+      "customer_info": {
+        "gender": "M",
+        "age": 22,
+        "persona_type": "A"
+      },
+      "order_info": {
+        "order_code": "ORD1975",
+        "order_date": "2025-08-16",
+        "month": 8,
+        "product_purchased": "Pixel 8 Pro",
+        "price": 1249772.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.9956733584403992
+        },
+        {
+          "rank": 2,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.0016000827308744192
+        }
+      ],
+      "actual_category": {
+        "code": "C01",
+        "name": "Smartphone"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 24,
+      "customer_info": {
+        "gender": "M",
+        "age": 29,
+        "persona_type": "A"
+      },
+      "order_info": {
+        "order_code": "ORD1791",
+        "order_date": "2025-09-11",
+        "month": 9,
+        "product_purchased": "Apple Magic Keyboard",
+        "price": 111663.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.9685405492782593
+        },
+        {
+          "rank": 2,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.027099117636680603
+        }
+      ],
+      "actual_category": {
+        "code": "C04",
+        "name": "Keyboard"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 25,
+      "customer_info": {
+        "gender": "F",
+        "age": 31,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD1899",
+        "order_date": "2025-06-15",
+        "month": 6,
+        "product_purchased": "MacBook Air M3",
+        "price": 1718513.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.9927942156791687
+        },
+        {
+          "rank": 2,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.005923599004745483
+        }
+      ],
+      "actual_category": {
+        "code": "C02",
+        "name": "Laptop"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 26,
+      "customer_info": {
+        "gender": "M",
+        "age": 52,
+        "persona_type": "D"
+      },
+      "order_info": {
+        "order_code": "ORD1852",
+        "order_date": "2025-04-07",
+        "month": 4,
+        "product_purchased": "LG Gram 16",
+        "price": 1438533.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.5539160370826721
+        },
+        {
+          "rank": 2,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.4347308278083801
+        }
+      ],
+      "actual_category": {
+        "code": "C02",
+        "name": "Laptop"
+      },
+      "is_correct_top1": false,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 27,
+      "customer_info": {
+        "gender": "M",
+        "age": 25,
+        "persona_type": "A"
+      },
+      "order_info": {
+        "order_code": "ORD1873",
+        "order_date": "2025-05-20",
+        "month": 5,
+        "product_purchased": "LG Gram 16",
+        "price": 1541804.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.5076189637184143
+        },
+        {
+          "rank": 2,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.47955185174942017
+        }
+      ],
+      "actual_category": {
+        "code": "C02",
+        "name": "Laptop"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 28,
+      "customer_info": {
+        "gender": "M",
+        "age": 20,
+        "persona_type": "A"
+      },
+      "order_info": {
+        "order_code": "ORD1978",
+        "order_date": "2025-09-14",
+        "month": 9,
+        "product_purchased": "LG Gram 16",
+        "price": 1545209.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.5574250817298889
+        },
+        {
+          "rank": 2,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.4265057146549225
+        }
+      ],
+      "actual_category": {
+        "code": "C02",
+        "name": "Laptop"
+      },
+      "is_correct_top1": false,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 29,
+      "customer_info": {
+        "gender": "F",
+        "age": 39,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD0244",
+        "order_date": "2025-08-04",
+        "month": 8,
+        "product_purchased": "iPhone 15 Pro Max",
+        "price": 1596415.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.5464342832565308
+        },
+        {
+          "rank": 2,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.4464568793773651
+        }
+      ],
+      "actual_category": {
+        "code": "C01",
+        "name": "Smartphone"
+      },
+      "is_correct_top1": false,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 30,
+      "customer_info": {
+        "gender": "F",
+        "age": 61,
+        "persona_type": "D"
+      },
+      "order_info": {
+        "order_code": "ORD1666",
+        "order_date": "2025-03-21",
+        "month": 3,
+        "product_purchased": "Apple Magic Keyboard",
+        "price": 116982.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.5504623651504517
+        },
+        {
+          "rank": 2,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.4383533298969269
+        }
+      ],
+      "actual_category": {
+        "code": "C04",
+        "name": "Keyboard"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 31,
+      "customer_info": {
+        "gender": "M",
+        "age": 52,
+        "persona_type": "D"
+      },
+      "order_info": {
+        "order_code": "ORD1692",
+        "order_date": "2025-04-19",
+        "month": 4,
+        "product_purchased": "Galaxy S24 Ultra",
+        "price": 1488088.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.6002712845802307
+        },
+        {
+          "rank": 2,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.38857394456863403
+        }
+      ],
+      "actual_category": {
+        "code": "C01",
+        "name": "Smartphone"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 32,
+      "customer_info": {
+        "gender": "M",
+        "age": 22,
+        "persona_type": "A"
+      },
+      "order_info": {
+        "order_code": "ORD1157",
+        "order_date": "2025-04-06",
+        "month": 4,
+        "product_purchased": "Apple Magic Keyboard",
+        "price": 121555.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.5649551153182983
+        },
+        {
+          "rank": 2,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.42755749821662903
+        }
+      ],
+      "actual_category": {
+        "code": "C04",
+        "name": "Keyboard"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 33,
+      "customer_info": {
+        "gender": "F",
+        "age": 31,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD0971",
+        "order_date": "2025-01-19",
+        "month": 1,
+        "product_purchased": "Pixel 8 Pro",
+        "price": 1237343.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.997700035572052
+        },
+        {
+          "rank": 2,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.0012154971482232213
+        }
+      ],
+      "actual_category": {
+        "code": "C01",
+        "name": "Smartphone"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 34,
+      "customer_info": {
+        "gender": "F",
+        "age": 62,
+        "persona_type": "D"
+      },
+      "order_info": {
+        "order_code": "ORD0601",
+        "order_date": "2025-11-10",
+        "month": 11,
+        "product_purchased": "Pixel 8 Pro",
+        "price": 1181565.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.9981597065925598
+        },
+        {
+          "rank": 2,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.0007331581437028944
+        }
+      ],
+      "actual_category": {
+        "code": "C01",
+        "name": "Smartphone"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 35,
+      "customer_info": {
+        "gender": "F",
+        "age": 60,
+        "persona_type": "D"
+      },
+      "order_info": {
+        "order_code": "ORD0948",
+        "order_date": "2025-05-06",
+        "month": 5,
+        "product_purchased": "Apple Magic Keyboard",
+        "price": 124920.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.5377444624900818
+        },
+        {
+          "rank": 2,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.4507196545600891
+        }
+      ],
+      "actual_category": {
+        "code": "C04",
+        "name": "Keyboard"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 36,
+      "customer_info": {
+        "gender": "M",
+        "age": 21,
+        "persona_type": "A"
+      },
+      "order_info": {
+        "order_code": "ORD0584",
+        "order_date": "2025-06-16",
+        "month": 6,
+        "product_purchased": "LG Gram 16",
+        "price": 1450291.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.5379173755645752
+        },
+        {
+          "rank": 2,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.44854965806007385
+        }
+      ],
+      "actual_category": {
+        "code": "C02",
+        "name": "Laptop"
+      },
+      "is_correct_top1": false,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 37,
+      "customer_info": {
+        "gender": "M",
+        "age": 28,
+        "persona_type": "A"
+      },
+      "order_info": {
+        "order_code": "ORD1403",
+        "order_date": "2025-01-31",
+        "month": 1,
+        "product_purchased": "LG Gram 16",
+        "price": 1439391.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.6428195238113403
+        },
+        {
+          "rank": 2,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.34436535835266113
+        }
+      ],
+      "actual_category": {
+        "code": "C02",
+        "name": "Laptop"
+      },
+      "is_correct_top1": false,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 38,
+      "customer_info": {
+        "gender": "M",
+        "age": 25,
+        "persona_type": "A"
+      },
+      "order_info": {
+        "order_code": "ORD0158",
+        "order_date": "2025-07-28",
+        "month": 7,
+        "product_purchased": "Keychron Q1 Pro",
+        "price": 270064.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.9978591799736023
+        },
+        {
+          "rank": 2,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.0007939944043755531
+        }
+      ],
+      "actual_category": {
+        "code": "C04",
+        "name": "Keyboard"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 39,
+      "customer_info": {
+        "gender": "F",
+        "age": 34,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD0570",
+        "order_date": "2025-02-27",
+        "month": 2,
+        "product_purchased": "iPhone 15 Pro Max",
+        "price": 1640107.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.5859337449073792
+        },
+        {
+          "rank": 2,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.407098650932312
+        }
+      ],
+      "actual_category": {
+        "code": "C01",
+        "name": "Smartphone"
+      },
+      "is_correct_top1": false,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 40,
+      "customer_info": {
+        "gender": "F",
+        "age": 31,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD0530",
+        "order_date": "2025-11-04",
+        "month": 11,
+        "product_purchased": "iPhone 15 Pro Max",
+        "price": 1587179.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.592171311378479
+        },
+        {
+          "rank": 2,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.4015548825263977
+        }
+      ],
+      "actual_category": {
+        "code": "C01",
+        "name": "Smartphone"
+      },
+      "is_correct_top1": false,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 41,
+      "customer_info": {
+        "gender": "F",
+        "age": 31,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD0200",
+        "order_date": "2025-12-15",
+        "month": 12,
+        "product_purchased": "Galaxy S24 Ultra",
+        "price": 1467003.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.6820551753044128
+        },
+        {
+          "rank": 2,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.3116712272167206
+        }
+      ],
+      "actual_category": {
+        "code": "C01",
+        "name": "Smartphone"
+      },
+      "is_correct_top1": false,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 42,
+      "customer_info": {
+        "gender": "F",
+        "age": 30,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD0436",
+        "order_date": "2025-03-07",
+        "month": 3,
+        "product_purchased": "Logitech MX Master 3S",
+        "price": 140244.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.9878221154212952
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.00818956270813942
+        }
+      ],
+      "actual_category": {
+        "code": "C03",
+        "name": "Mouse"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 43,
+      "customer_info": {
+        "gender": "F",
+        "age": 37,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD0882",
+        "order_date": "2025-01-28",
+        "month": 1,
+        "product_purchased": "MacBook Air M3",
+        "price": 1589433.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.667227566242218
+        },
+        {
+          "rank": 2,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.3270137310028076
+        }
+      ],
+      "actual_category": {
+        "code": "C02",
+        "name": "Laptop"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 44,
+      "customer_info": {
+        "gender": "M",
+        "age": 22,
+        "persona_type": "A"
+      },
+      "order_info": {
+        "order_code": "ORD0973",
+        "order_date": "2025-11-14",
+        "month": 11,
+        "product_purchased": "Razer DeathAdder V3",
+        "price": 90428.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.9964003562927246
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.002578222658485174
+        }
+      ],
+      "actual_category": {
+        "code": "C03",
+        "name": "Mouse"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 45,
+      "customer_info": {
+        "gender": "F",
+        "age": 35,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD1649",
+        "order_date": "2025-04-05",
+        "month": 4,
+        "product_purchased": "MacBook Air M3",
+        "price": 1677255.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.9897929430007935
+        },
+        {
+          "rank": 2,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.008905082009732723
+        }
+      ],
+      "actual_category": {
+        "code": "C02",
+        "name": "Laptop"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 46,
+      "customer_info": {
+        "gender": "F",
+        "age": 31,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD1957",
+        "order_date": "2025-10-12",
+        "month": 10,
+        "product_purchased": "Pixel 8 Pro",
+        "price": 1135442.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.9979498982429504
+        },
+        {
+          "rank": 2,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.0010288683697581291
+        }
+      ],
+      "actual_category": {
+        "code": "C01",
+        "name": "Smartphone"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 47,
+      "customer_info": {
+        "gender": "F",
+        "age": 33,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD1831",
+        "order_date": "2025-04-01",
+        "month": 4,
+        "product_purchased": "Pixel 8 Pro",
+        "price": 1130721.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.9975493550300598
+        },
+        {
+          "rank": 2,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.0012922759633511305
+        }
+      ],
+      "actual_category": {
+        "code": "C01",
+        "name": "Smartphone"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 48,
+      "customer_info": {
+        "gender": "F",
+        "age": 39,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD1655",
+        "order_date": "2025-01-06",
+        "month": 1,
+        "product_purchased": "iPhone 15 Pro Max",
+        "price": 1541854.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.6462631225585938
+        },
+        {
+          "rank": 2,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.34768667817115784
+        }
+      ],
+      "actual_category": {
+        "code": "C01",
+        "name": "Smartphone"
+      },
+      "is_correct_top1": false,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 49,
+      "customer_info": {
+        "gender": "M",
+        "age": 49,
+        "persona_type": "C"
+      },
+      "order_info": {
+        "order_code": "ORD0240",
+        "order_date": "2025-06-23",
+        "month": 6,
+        "product_purchased": "MacBook Air M3",
+        "price": 1713754.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.9951122403144836
+        },
+        {
+          "rank": 2,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.00403211684897542
+        }
+      ],
+      "actual_category": {
+        "code": "C02",
+        "name": "Laptop"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 50,
+      "customer_info": {
+        "gender": "M",
+        "age": 25,
+        "persona_type": "A"
+      },
+      "order_info": {
+        "order_code": "ORD1326",
+        "order_date": "2025-09-21",
+        "month": 9,
+        "product_purchased": "Keychron Q1 Pro",
+        "price": 242564.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.9984347224235535
+        },
+        {
+          "rank": 2,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.0005906980368308723
+        }
+      ],
+      "actual_category": {
+        "code": "C04",
+        "name": "Keyboard"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 51,
+      "customer_info": {
+        "gender": "F",
+        "age": 34,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD0179",
+        "order_date": "2025-04-28",
+        "month": 4,
+        "product_purchased": "MacBook Air M3",
+        "price": 1443470.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.583511233329773
+        },
+        {
+          "rank": 2,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.40988975763320923
+        }
+      ],
+      "actual_category": {
+        "code": "C02",
+        "name": "Laptop"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 52,
+      "customer_info": {
+        "gender": "F",
+        "age": 62,
+        "persona_type": "D"
+      },
+      "order_info": {
+        "order_code": "ORD1477",
+        "order_date": "2025-11-29",
+        "month": 11,
+        "product_purchased": "Razer DeathAdder V3",
+        "price": 100869.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.9976045489311218
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.0010887145763263106
+        }
+      ],
+      "actual_category": {
+        "code": "C03",
+        "name": "Mouse"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 53,
+      "customer_info": {
+        "gender": "F",
+        "age": 31,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD1406",
+        "order_date": "2025-12-07",
+        "month": 12,
+        "product_purchased": "Pixel 8 Pro",
+        "price": 1143288.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.9971762895584106
+        },
+        {
+          "rank": 2,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.0015475875698029995
+        }
+      ],
+      "actual_category": {
+        "code": "C01",
+        "name": "Smartphone"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 54,
+      "customer_info": {
+        "gender": "M",
+        "age": 24,
+        "persona_type": "A"
+      },
+      "order_info": {
+        "order_code": "ORD1297",
+        "order_date": "2025-04-18",
+        "month": 4,
+        "product_purchased": "Apple Magic Keyboard",
+        "price": 108853.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.5924708843231201
+        },
+        {
+          "rank": 2,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.3991728723049164
+        }
+      ],
+      "actual_category": {
+        "code": "C04",
+        "name": "Keyboard"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 55,
+      "customer_info": {
+        "gender": "M",
+        "age": 26,
+        "persona_type": "A"
+      },
+      "order_info": {
+        "order_code": "ORD1552",
+        "order_date": "2025-11-06",
+        "month": 11,
+        "product_purchased": "Logitech MX Master 3S",
+        "price": 132184.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.9881535172462463
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.01005670614540577
+        }
+      ],
+      "actual_category": {
+        "code": "C03",
+        "name": "Mouse"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 56,
+      "customer_info": {
+        "gender": "F",
+        "age": 32,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD1470",
+        "order_date": "2025-12-08",
+        "month": 12,
+        "product_purchased": "Pixel 8 Pro",
+        "price": 1119940.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.9964315891265869
+        },
+        {
+          "rank": 2,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.0019622042309492826
+        }
+      ],
+      "actual_category": {
+        "code": "C01",
+        "name": "Smartphone"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 57,
+      "customer_info": {
+        "gender": "F",
+        "age": 33,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD1947",
+        "order_date": "2025-03-27",
+        "month": 3,
+        "product_purchased": "LG Gram 16",
+        "price": 1565730.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.5074339509010315
+        },
+        {
+          "rank": 2,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.4850349426269531
+        }
+      ],
+      "actual_category": {
+        "code": "C02",
+        "name": "Laptop"
+      },
+      "is_correct_top1": false,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 58,
+      "customer_info": {
+        "gender": "M",
+        "age": 45,
+        "persona_type": "C"
+      },
+      "order_info": {
+        "order_code": "ORD0731",
+        "order_date": "2025-02-27",
+        "month": 2,
+        "product_purchased": "Logitech MX Master 3S",
+        "price": 141598.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.9753564596176147
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.018177827820181847
+        }
+      ],
+      "actual_category": {
+        "code": "C03",
+        "name": "Mouse"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 59,
+      "customer_info": {
+        "gender": "M",
+        "age": 29,
+        "persona_type": "A"
+      },
+      "order_info": {
+        "order_code": "ORD1691",
+        "order_date": "2025-09-17",
+        "month": 9,
+        "product_purchased": "iPhone 15 Pro Max",
+        "price": 1469625.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.5767890214920044
+        },
+        {
+          "rank": 2,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.4070047438144684
+        }
+      ],
+      "actual_category": {
+        "code": "C01",
+        "name": "Smartphone"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 60,
+      "customer_info": {
+        "gender": "M",
+        "age": 29,
+        "persona_type": "A"
+      },
+      "order_info": {
+        "order_code": "ORD1302",
+        "order_date": "2025-08-05",
+        "month": 8,
+        "product_purchased": "Logitech MX Master 3S",
+        "price": 117339.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.5175529718399048
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.47397351264953613
+        }
+      ],
+      "actual_category": {
+        "code": "C03",
+        "name": "Mouse"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 61,
+      "customer_info": {
+        "gender": "F",
+        "age": 37,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD0526",
+        "order_date": "2025-06-21",
+        "month": 6,
+        "product_purchased": "Razer DeathAdder V3",
+        "price": 94764.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.9947112798690796
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.0030117719434201717
+        }
+      ],
+      "actual_category": {
+        "code": "C03",
+        "name": "Mouse"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 62,
+      "customer_info": {
+        "gender": "M",
+        "age": 48,
+        "persona_type": "C"
+      },
+      "order_info": {
+        "order_code": "ORD0619",
+        "order_date": "2025-12-19",
+        "month": 12,
+        "product_purchased": "MacBook Air M3",
+        "price": 1598212.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.6685115694999695
+        },
+        {
+          "rank": 2,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.3243556618690491
+        }
+      ],
+      "actual_category": {
+        "code": "C02",
+        "name": "Laptop"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 63,
+      "customer_info": {
+        "gender": "F",
+        "age": 33,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD0407",
+        "order_date": "2025-01-21",
+        "month": 1,
+        "product_purchased": "Razer DeathAdder V3",
+        "price": 104980.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.9971103668212891
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.0012189385015517473
+        }
+      ],
+      "actual_category": {
+        "code": "C03",
+        "name": "Mouse"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 64,
+      "customer_info": {
+        "gender": "M",
+        "age": 58,
+        "persona_type": "D"
+      },
+      "order_info": {
+        "order_code": "ORD1760",
+        "order_date": "2025-10-15",
+        "month": 10,
+        "product_purchased": "Logitech MX Master 3S",
+        "price": 127987.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.6938861012458801
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.2936337888240814
+        }
+      ],
+      "actual_category": {
+        "code": "C03",
+        "name": "Mouse"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 65,
+      "customer_info": {
+        "gender": "M",
+        "age": 41,
+        "persona_type": "C"
+      },
+      "order_info": {
+        "order_code": "ORD1830",
+        "order_date": "2025-11-13",
+        "month": 11,
+        "product_purchased": "LG Gram 16",
+        "price": 1363102.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.5474085807800293
+        },
+        {
+          "rank": 2,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.4432123303413391
+        }
+      ],
+      "actual_category": {
+        "code": "C02",
+        "name": "Laptop"
+      },
+      "is_correct_top1": false,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 66,
+      "customer_info": {
+        "gender": "F",
+        "age": 33,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD0277",
+        "order_date": "2025-01-18",
+        "month": 1,
+        "product_purchased": "iPhone 15 Pro Max",
+        "price": 1508633.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.5779783725738525
+        },
+        {
+          "rank": 2,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.41535717248916626
+        }
+      ],
+      "actual_category": {
+        "code": "C01",
+        "name": "Smartphone"
+      },
+      "is_correct_top1": false,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 67,
+      "customer_info": {
+        "gender": "F",
+        "age": 32,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD1613",
+        "order_date": "2025-10-11",
+        "month": 10,
+        "product_purchased": "Razer DeathAdder V3",
+        "price": 107430.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.7645484209060669
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.21921686828136444
+        }
+      ],
+      "actual_category": {
+        "code": "C03",
+        "name": "Mouse"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 68,
+      "customer_info": {
+        "gender": "F",
+        "age": 38,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD0540",
+        "order_date": "2025-10-22",
+        "month": 10,
+        "product_purchased": "LG Gram 16",
+        "price": 1575390.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.6746644973754883
+        },
+        {
+          "rank": 2,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.3187364339828491
+        }
+      ],
+      "actual_category": {
+        "code": "C02",
+        "name": "Laptop"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 69,
+      "customer_info": {
+        "gender": "M",
+        "age": 29,
+        "persona_type": "A"
+      },
+      "order_info": {
+        "order_code": "ORD0534",
+        "order_date": "2025-07-17",
+        "month": 7,
+        "product_purchased": "LG Gram 16",
+        "price": 1495434.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.5589830279350281
+        },
+        {
+          "rank": 2,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.4265838861465454
+        }
+      ],
+      "actual_category": {
+        "code": "C02",
+        "name": "Laptop"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 70,
+      "customer_info": {
+        "gender": "F",
+        "age": 30,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD1540",
+        "order_date": "2025-07-11",
+        "month": 7,
+        "product_purchased": "Razer DeathAdder V3",
+        "price": 94916.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.9962702989578247
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.0015509116929024458
+        }
+      ],
+      "actual_category": {
+        "code": "C03",
+        "name": "Mouse"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 71,
+      "customer_info": {
+        "gender": "M",
+        "age": 25,
+        "persona_type": "A"
+      },
+      "order_info": {
+        "order_code": "ORD1428",
+        "order_date": "2025-05-26",
+        "month": 5,
+        "product_purchased": "Apple Magic Keyboard",
+        "price": 128356.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.5468757748603821
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.44426190853118896
+        }
+      ],
+      "actual_category": {
+        "code": "C04",
+        "name": "Keyboard"
+      },
+      "is_correct_top1": false,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 72,
+      "customer_info": {
+        "gender": "M",
+        "age": 24,
+        "persona_type": "A"
+      },
+      "order_info": {
+        "order_code": "ORD0854",
+        "order_date": "2025-02-07",
+        "month": 2,
+        "product_purchased": "Razer DeathAdder V3",
+        "price": 93218.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.9971867203712463
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.0019611686002463102
+        }
+      ],
+      "actual_category": {
+        "code": "C03",
+        "name": "Mouse"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 73,
+      "customer_info": {
+        "gender": "F",
+        "age": 58,
+        "persona_type": "D"
+      },
+      "order_info": {
+        "order_code": "ORD0668",
+        "order_date": "2025-05-17",
+        "month": 5,
+        "product_purchased": "Razer DeathAdder V3",
+        "price": 91278.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.9969435334205627
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.0017220070585608482
+        }
+      ],
+      "actual_category": {
+        "code": "C03",
+        "name": "Mouse"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 74,
+      "customer_info": {
+        "gender": "F",
+        "age": 65,
+        "persona_type": "D"
+      },
+      "order_info": {
+        "order_code": "ORD0257",
+        "order_date": "2025-02-03",
+        "month": 2,
+        "product_purchased": "MacBook Air M3",
+        "price": 1665530.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.9886491298675537
+        },
+        {
+          "rank": 2,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.009313362650573254
+        }
+      ],
+      "actual_category": {
+        "code": "C02",
+        "name": "Laptop"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 75,
+      "customer_info": {
+        "gender": "F",
+        "age": 36,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD1025",
+        "order_date": "2025-12-20",
+        "month": 12,
+        "product_purchased": "Keychron Q1 Pro",
+        "price": 231772.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.9940158128738403
+        },
+        {
+          "rank": 2,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.002626016503199935
+        }
+      ],
+      "actual_category": {
+        "code": "C04",
+        "name": "Keyboard"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 76,
+      "customer_info": {
+        "gender": "M",
+        "age": 59,
+        "persona_type": "D"
+      },
+      "order_info": {
+        "order_code": "ORD0373",
+        "order_date": "2025-03-07",
+        "month": 3,
+        "product_purchased": "Apple Magic Keyboard",
+        "price": 117146.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.5097683668136597
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.4772241413593292
+        }
+      ],
+      "actual_category": {
+        "code": "C04",
+        "name": "Keyboard"
+      },
+      "is_correct_top1": false,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 77,
+      "customer_info": {
+        "gender": "F",
+        "age": 50,
+        "persona_type": "D"
+      },
+      "order_info": {
+        "order_code": "ORD1581",
+        "order_date": "2025-10-19",
+        "month": 10,
+        "product_purchased": "Keychron Q1 Pro",
+        "price": 270596.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.9947699904441833
+        },
+        {
+          "rank": 2,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.0022511889692395926
+        }
+      ],
+      "actual_category": {
+        "code": "C04",
+        "name": "Keyboard"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 78,
+      "customer_info": {
+        "gender": "M",
+        "age": 48,
+        "persona_type": "C"
+      },
+      "order_info": {
+        "order_code": "ORD1696",
+        "order_date": "2025-07-07",
+        "month": 7,
+        "product_purchased": "Pixel 8 Pro",
+        "price": 1296842.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.7333585619926453
+        },
+        {
+          "rank": 2,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.26146042346954346
+        }
+      ],
+      "actual_category": {
+        "code": "C01",
+        "name": "Smartphone"
+      },
+      "is_correct_top1": false,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 79,
+      "customer_info": {
+        "gender": "F",
+        "age": 35,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD1689",
+        "order_date": "2025-07-09",
+        "month": 7,
+        "product_purchased": "MacBook Air M3",
+        "price": 1475124.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.516169011592865
+        },
+        {
+          "rank": 2,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.47779011726379395
+        }
+      ],
+      "actual_category": {
+        "code": "C02",
+        "name": "Laptop"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 80,
+      "customer_info": {
+        "gender": "M",
+        "age": 23,
+        "persona_type": "A"
+      },
+      "order_info": {
+        "order_code": "ORD1042",
+        "order_date": "2025-10-15",
+        "month": 10,
+        "product_purchased": "Razer DeathAdder V3",
+        "price": 101529.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.995354413986206
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.003488673362880945
+        }
+      ],
+      "actual_category": {
+        "code": "C03",
+        "name": "Mouse"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 81,
+      "customer_info": {
+        "gender": "M",
+        "age": 45,
+        "persona_type": "C"
+      },
+      "order_info": {
+        "order_code": "ORD1731",
+        "order_date": "2025-05-25",
+        "month": 5,
+        "product_purchased": "MacBook Air M3",
+        "price": 1659587.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.9938406944274902
+        },
+        {
+          "rank": 2,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.005224546417593956
+        }
+      ],
+      "actual_category": {
+        "code": "C02",
+        "name": "Laptop"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 82,
+      "customer_info": {
+        "gender": "F",
+        "age": 38,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD1148",
+        "order_date": "2025-01-02",
+        "month": 1,
+        "product_purchased": "LG Gram 16",
+        "price": 1335467.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.6572307348251343
+        },
+        {
+          "rank": 2,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.33715349435806274
+        }
+      ],
+      "actual_category": {
+        "code": "C02",
+        "name": "Laptop"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 83,
+      "customer_info": {
+        "gender": "F",
+        "age": 60,
+        "persona_type": "D"
+      },
+      "order_info": {
+        "order_code": "ORD0719",
+        "order_date": "2025-03-31",
+        "month": 3,
+        "product_purchased": "Pixel 8 Pro",
+        "price": 1089338.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.9970207810401917
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.001078311470337212
+        }
+      ],
+      "actual_category": {
+        "code": "C01",
+        "name": "Smartphone"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 84,
+      "customer_info": {
+        "gender": "F",
+        "age": 32,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD0648",
+        "order_date": "2025-12-27",
+        "month": 12,
+        "product_purchased": "MacBook Air M3",
+        "price": 1497614.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.7031842470169067
+        },
+        {
+          "rank": 2,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.28992316126823425
+        }
+      ],
+      "actual_category": {
+        "code": "C02",
+        "name": "Laptop"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 85,
+      "customer_info": {
+        "gender": "F",
+        "age": 34,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD1151",
+        "order_date": "2025-09-18",
+        "month": 9,
+        "product_purchased": "Pixel 8 Pro",
+        "price": 1155887.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.997736930847168
+        },
+        {
+          "rank": 2,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.0011441765818744898
+        }
+      ],
+      "actual_category": {
+        "code": "C01",
+        "name": "Smartphone"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 86,
+      "customer_info": {
+        "gender": "M",
+        "age": 49,
+        "persona_type": "C"
+      },
+      "order_info": {
+        "order_code": "ORD1524",
+        "order_date": "2025-09-18",
+        "month": 9,
+        "product_purchased": "iPhone 15 Pro Max",
+        "price": 1466536.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.6626462340354919
+        },
+        {
+          "rank": 2,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.33112144470214844
+        }
+      ],
+      "actual_category": {
+        "code": "C01",
+        "name": "Smartphone"
+      },
+      "is_correct_top1": false,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 87,
+      "customer_info": {
+        "gender": "M",
+        "age": 26,
+        "persona_type": "A"
+      },
+      "order_info": {
+        "order_code": "ORD1412",
+        "order_date": "2025-10-12",
+        "month": 10,
+        "product_purchased": "Keychron Q1 Pro",
+        "price": 265821.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.9986880421638489
+        },
+        {
+          "rank": 2,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.0004899174673482776
+        }
+      ],
+      "actual_category": {
+        "code": "C04",
+        "name": "Keyboard"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 88,
+      "customer_info": {
+        "gender": "M",
+        "age": 28,
+        "persona_type": "A"
+      },
+      "order_info": {
+        "order_code": "ORD1109",
+        "order_date": "2025-09-30",
+        "month": 9,
+        "product_purchased": "Logitech MX Master 3S",
+        "price": 120667.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.5668205618858337
+        },
+        {
+          "rank": 2,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.4261211156845093
+        }
+      ],
+      "actual_category": {
+        "code": "C03",
+        "name": "Mouse"
+      },
+      "is_correct_top1": false,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 89,
+      "customer_info": {
+        "gender": "F",
+        "age": 36,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD0767",
+        "order_date": "2025-04-03",
+        "month": 4,
+        "product_purchased": "Keychron Q1 Pro",
+        "price": 260707.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.9949089884757996
+        },
+        {
+          "rank": 2,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.002088223583996296
+        }
+      ],
+      "actual_category": {
+        "code": "C04",
+        "name": "Keyboard"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 90,
+      "customer_info": {
+        "gender": "F",
+        "age": 33,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD1322",
+        "order_date": "2025-01-27",
+        "month": 1,
+        "product_purchased": "Razer DeathAdder V3",
+        "price": 96132.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.9959294199943542
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.0019297914113849401
+        }
+      ],
+      "actual_category": {
+        "code": "C03",
+        "name": "Mouse"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 91,
+      "customer_info": {
+        "gender": "F",
+        "age": 37,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD1910",
+        "order_date": "2025-02-04",
+        "month": 2,
+        "product_purchased": "Apple Magic Keyboard",
+        "price": 123024.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.6287143230438232
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.35333898663520813
+        }
+      ],
+      "actual_category": {
+        "code": "C04",
+        "name": "Keyboard"
+      },
+      "is_correct_top1": false,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 92,
+      "customer_info": {
+        "gender": "F",
+        "age": 32,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD0377",
+        "order_date": "2025-10-26",
+        "month": 10,
+        "product_purchased": "Pixel 8 Pro",
+        "price": 1139714.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.99764484167099
+        },
+        {
+          "rank": 2,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.0012066104682162404
+        }
+      ],
+      "actual_category": {
+        "code": "C01",
+        "name": "Smartphone"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 93,
+      "customer_info": {
+        "gender": "M",
+        "age": 22,
+        "persona_type": "A"
+      },
+      "order_info": {
+        "order_code": "ORD0118",
+        "order_date": "2025-11-30",
+        "month": 11,
+        "product_purchased": "Logitech MX Master 3S",
+        "price": 128725.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.5094909071922302
+        },
+        {
+          "rank": 2,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.4818347096443176
+        }
+      ],
+      "actual_category": {
+        "code": "C03",
+        "name": "Mouse"
+      },
+      "is_correct_top1": false,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 94,
+      "customer_info": {
+        "gender": "M",
+        "age": 20,
+        "persona_type": "A"
+      },
+      "order_info": {
+        "order_code": "ORD1853",
+        "order_date": "2025-04-10",
+        "month": 4,
+        "product_purchased": "Keychron Q1 Pro",
+        "price": 228951.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.9983723759651184
+        },
+        {
+          "rank": 2,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.0005832071183249354
+        }
+      ],
+      "actual_category": {
+        "code": "C04",
+        "name": "Keyboard"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 95,
+      "customer_info": {
+        "gender": "M",
+        "age": 48,
+        "persona_type": "C"
+      },
+      "order_info": {
+        "order_code": "ORD1092",
+        "order_date": "2025-05-01",
+        "month": 5,
+        "product_purchased": "Logitech MX Master 3S",
+        "price": 133331.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.9562127590179443
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.03435100242495537
+        }
+      ],
+      "actual_category": {
+        "code": "C03",
+        "name": "Mouse"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 96,
+      "customer_info": {
+        "gender": "M",
+        "age": 46,
+        "persona_type": "C"
+      },
+      "order_info": {
+        "order_code": "ORD0291",
+        "order_date": "2025-01-16",
+        "month": 1,
+        "product_purchased": "Apple Magic Keyboard",
+        "price": 118029.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.6355727910995483
+        },
+        {
+          "rank": 2,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.34337958693504333
+        }
+      ],
+      "actual_category": {
+        "code": "C04",
+        "name": "Keyboard"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 97,
+      "customer_info": {
+        "gender": "F",
+        "age": 32,
+        "persona_type": "B"
+      },
+      "order_info": {
+        "order_code": "ORD0131",
+        "order_date": "2025-04-23",
+        "month": 4,
+        "product_purchased": "Logitech MX Master 3S",
+        "price": 119243.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.54732745885849
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.4327050745487213
+        }
+      ],
+      "actual_category": {
+        "code": "C03",
+        "name": "Mouse"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 98,
+      "customer_info": {
+        "gender": "M",
+        "age": 42,
+        "persona_type": "C"
+      },
+      "order_info": {
+        "order_code": "ORD1381",
+        "order_date": "2025-03-31",
+        "month": 3,
+        "product_purchased": "Logitech MX Master 3S",
+        "price": 135967.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C03",
+          "category_name": "Mouse",
+          "probability": 0.9762063026428223
+        },
+        {
+          "rank": 2,
+          "category_code": "C04",
+          "category_name": "Keyboard",
+          "probability": 0.01815715618431568
+        }
+      ],
+      "actual_category": {
+        "code": "C03",
+        "name": "Mouse"
+      },
+      "is_correct_top1": true,
+      "is_correct_top2": true
+    },
+    {
+      "sample_id": 99,
+      "customer_info": {
+        "gender": "M",
+        "age": 49,
+        "persona_type": "C"
+      },
+      "order_info": {
+        "order_code": "ORD1845",
+        "order_date": "2025-05-07",
+        "month": 5,
+        "product_purchased": "Galaxy S24 Ultra",
+        "price": 1436786.0
+      },
+      "predictions": [
+        {
+          "rank": 1,
+          "category_code": "C02",
+          "category_name": "Laptop",
+          "probability": 0.7221947908401489
+        },
+        {
+          "rank": 2,
+          "category_code": "C01",
+          "category_name": "Smartphone",
+          "probability": 0.27187782526016235
+        }
+      ],
+      "actual_category": {
+        "code": "C01",
+        "name": "Smartphone"
+      },
+      "is_correct_top1": false,
+      "is_correct_top2": true
+    }
+  ],
+  "category_statistics": [
+    {
+      "category_code": "C01",
+      "category_name": "Smartphone",
+      "total_orders": 1529,
+      "avg_price": 1375882.439502943,
+      "total_revenue": 2541052176.0,
+      "by_persona": {
+        "A": {
+          "orders": 288,
+          "avg_quantity": 1.0,
+          "total_revenue": 401987863.0
+        },
+        "B": {
+          "orders": 681,
+          "avg_quantity": 1.4698972099853158,
+          "total_revenue": 1372291310.0
+        },
+        "C": {
+          "orders": 278,
+          "avg_quantity": 1.0,
+          "total_revenue": 379861767.0
+        },
+        "D": {
+          "orders": 282,
+          "avg_quantity": 1.0,
+          "total_revenue": 386911236.0
+        }
+      }
+    },
+    {
+      "category_code": "C02",
+      "category_name": "Laptop",
+      "total_orders": 1269,
+      "avg_price": 1521759.793538219,
+      "total_revenue": 2380803859.0,
+      "by_persona": {
+        "A": {
+          "orders": 173,
+          "avg_quantity": 1.0,
+          "total_revenue": 264636479.0
+        },
+        "B": {
+          "orders": 622,
+          "avg_quantity": 1.4758842443729903,
+          "total_revenue": 1395724902.0
+        },
+        "C": {
+          "orders": 337,
+          "avg_quantity": 1.0,
+          "total_revenue": 511281363.0
+        },
+        "D": {
+          "orders": 137,
+          "avg_quantity": 1.0,
+          "total_revenue": 209161115.0
+        }
+      }
+    },
+    {
+      "category_code": "C03",
+      "category_name": "Mouse",
+      "total_orders": 1298,
+      "avg_price": 114800.9029275809,
+      "total_revenue": 164493264.0,
+      "by_persona": {
+        "A": {
+          "orders": 685,
+          "avg_quantity": 1.0,
+          "total_revenue": 78829924.0
+        },
+        "B": {
+          "orders": 258,
+          "avg_quantity": 1.5232558139534884,
+          "total_revenue": 45074166.0
+        },
+        "C": {
+          "orders": 83,
+          "avg_quantity": 1.0,
+          "total_revenue": 9412371.0
+        },
+        "D": {
+          "orders": 272,
+          "avg_quantity": 1.0,
+          "total_revenue": 31176803.0
+        }
+      }
+    },
+    {
+      "category_code": "C04",
+      "category_name": "Keyboard",
+      "total_orders": 1098,
+      "avg_price": 182675.78142076504,
+      "total_revenue": 215999521.0,
+      "by_persona": {
+        "A": {
+          "orders": 663,
+          "avg_quantity": 1.0,
+          "total_revenue": 122173547.0
+        },
+        "B": {
+          "orders": 177,
+          "avg_quantity": 1.4745762711864407,
+          "total_revenue": 48767266.0
+        },
+        "C": {
+          "orders": 131,
+          "avg_quantity": 1.0,
+          "total_revenue": 23629272.0
+        },
+        "D": {
+          "orders": 127,
+          "avg_quantity": 1.0,
+          "total_revenue": 21429436.0
+        }
+      }
+    }
+  ]
+}

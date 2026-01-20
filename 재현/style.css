@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/* 기본 스타일 */
+body {
+    background: #f8fafc;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    color: #0f172a;
+}
+
+.wrapper {
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #3499DA;
+}
+
+.logo span {
+    color: #9645D6;
+}
+
+/* 상단 카드 */
+.top-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.card {
+    height: 320px;
+    padding: 25px;
+    border-radius: 20px;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.purple { 
+    background: #6366f1; 
+}
+
+.green { 
+    background: #10b981; 
+}
+
+.orange { 
+    background: #f59e0b; 
+}
+
+.chart-box {
+    height: 160px;
+    margin: 15px 0;
+}
+
+.desc {
+    font-size: 13px;
+    opacity: 0.9;
+    line-height: 1.5;
+}
+
+/* 메인 그리드 */
+.main-grid {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 25px;
+}
+
+.panel {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* 입력 폼 */
+.f-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: #3499DA;
+}
+
+button {
+    width: 100%;
+    padding: 16px;
+    background: #0f172a;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #1e293b;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* 결과 박스 */
+.res-box {
+    background: #f1f5f9;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+}
+
+.res-box h4 {
+    margin: 10px 0;
+    font-size: 18px;
+}
+
+.res-box p {
+    margin: 5px 0;
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.tag {
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    background: #3499DA;
+    color: white;
+    font-weight: 800;
+    display: inline-block;
+}
+
+.tag.ai {
+    background: #9645D6;
+}
+
+/* 프로그레스 바 */
+.p-bar-bg {
+    background: #e2e8f0;
+    height: 12px;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+#res-bar, #res-bar2 {
+    height: 100%;
+    background: #9645D6;
+    width: 0%;
+    transition: width 1s ease-out;
+    border-radius: 6px;
+}
+
+#res-bar2 {
+    background: #3499DA;
+}
+
+/* 메시지 */
+.init-msg {
+    text-align: center;
+    padding: 40px;
+    color: #94a3b8;
+    font-size: 16px;
+}
+
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: #3499DA;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .top-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .main-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        height: auto;
+        min-height: 280px;
+    }
+
+    .wrapper {
+        padding: 20px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        font-size: 24px;
+    }
+
+    .panel {
+        padding: 20px;
+    }
+
+    button {
+        padding: 14px;
+    }
+}

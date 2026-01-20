@@ -29,6 +29,43 @@
         <!-- 본문 -->
         <div id="main">
         
+
+
+
+
+
+
+            <!-- 제품 검색 목록 (하단) -->
+            <div id="m_search">
+                <div class="m_s_head">
+                    <div><h3>제품명</h3> <input class="m_s_name" placeholder="제품명"/></div>
+                    <div><h3>브랜드</h3> <input class="m_s_b" placeholder="브랜드 입력"/></div>
+                    <div><h3>카테고리</h3><select>
+                        <option value="disabled">카테고리 입력</option>
+                        <option value="C01">Smartphone</option>
+                        <option value="C02">Laptop</option>
+                        <option value="C03">Mouse</option>
+                        <option value="C04">Keyboard</option>
+                    </select></div>
+                    <div><h3>가격대</h3> <input class="m_s_min" placeholder="최소 가격"/> ~ <input class="m_s_max" placeholder="최대 가격"/></div>
+                </div>
+                <button onclick=""> 검색 </button>
+
+                <div class="m_s_list">
+                    <h3>제품 검색 목록</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>이미지</th><th>제품명</th><th>카테고리</th><th>브랜드</th><th>가격</th><th>수량</th><th>관리</th>
+                            </tr>
+                        </thead>
+                        <tbody class="m_s_tbody">
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
         </div> <!-- 본문 end -->
 
 
@@ -72,7 +109,7 @@
         <div id="footer_bottom">
             <div id="footer_inner_bottom">
                 <div>© 2026 ShopAdmin. All rights reserved. </div>
-                <div>사업자등록번호:    123-45-67890        |     대표: 홍길동</div>
+                <div>사업자등록번호: 123-45-67890 | 대표: 홍길동</div>
             </div>
         </div>
 

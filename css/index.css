@@ -1,0 +1,73 @@
+/* ================ 전체 ================ */
+
+*{ padding: 0px; margin: 0px; box-sizing: border-box;}
+li{ list-style-type: none;}
+a{ text-decoration: none; color: black;}
+body{ background-color: #F8FAFC;}
+
+/* ================ 폰트 ================ */
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa2JL7SUc.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+*{ font-family: 'Inter'; }
+
+/* ================ 헤더 ================ */
+
+#header{ 
+    width: 100%; background-color: white; 
+    border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;
+    border-bottom: #D9D9D9 solid 1px;
+}
+#header > #header_inner{ 
+    width: 1280px; margin: 0 auto; 
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 40px 0px;
+}
+.h_logo{ width: 139px;}
+
+
+/* ================ 본문 ================ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ================ 푸터 ================ */
+#footer{ 
+    width: 100%; background-color: #373D4D; margin-top: 40px;
+    border-top-left-radius: 30px; border-top-right-radius: 30px;
+}
+#footer > #footer_inner{ 
+    width: 1280px; margin: 0 auto; 
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 40px 0px;
+}

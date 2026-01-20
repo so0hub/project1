@@ -104,6 +104,9 @@ img{width: 15px; margin-right: 8px;} /*지워야 함*/
 .f_link > ul > li{
     margin-top: 5px;
 }
+.f_link > ul > li > a{
+    color: #E0E0E0; font-size: 15px;
+}
 .f_link > ul > li > h3{
     margin: 10px 0;
     font-weight: 500;

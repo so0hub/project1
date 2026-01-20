@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>제품 관리 대시보드</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' href="./css/member.css"/>
+    <link rel='stylesheet' href="./css/member.css" />
 </head>
+
 <body>
-    
+
     <!-- 전체 -->
     <div id="wrap">
 
@@ -26,23 +28,97 @@
             <div id="main_board">
                 <div id="member">
                     <div>
-                       <div></div>
-
+                        <div>회원 관리</div>
+                        <div><input type="text" placeholder="회원 이름 검색" /><button onclick="">검색</button></div>
                     </div>
-                    <div>
+                    <div id="member_id">
+                        <div>
+                            <div>김민준</div><button class="we" onclick="">활성</button>
+                        </div>
+                        <div class="q">
+                            <div>가입일 : </div>
+                            <div>2026-01-20</div>
+                        </div>
 
+                        <div class="q">
+                            <div>성별 : </div>
+                            <div>남</div>
+                        </div>
+
+                        <div class="q">
+                            <div>나이 : </div>
+                            <div>28세</div>
+                        </div>
+                        <button onclick="">회원탈퇴</button>
                     </div>
-                    <div>
 
+                    <div id="member_id">
+                        <div>
+                            <div>김민준</div><button class="we" onclick="">활성</button>
+                        </div>
+                        
+                        <div class="q">
+                            <div>가입일 : </div>
+                            <div>2026-01-20</div>
+                        </div>
+
+                        <div class="q">
+                            <div>성별 : </div>
+                            <div>남</div>
+                        </div>
+
+                        <div class="q">
+                            <div>나이 : </div>
+                            <div>28세</div>
+                        </div>
+
+                        <button onclick="">회원탈퇴</button>
                     </div>
 
                 </div>
 
                 <div id="payment">
+                    <div>결제 내역</div>
+                    <div class="P">
+                        <table style="border-collapse : collapse;">
+                            <tr id="th">
+                                <th>주문번호</th>
+                                <th>제품명</th>
+                                <th>수량</th>
+                                <th>결제금액</th>
+                                <th>결제일시</th>
+                                <th>장소</th>
+                            </tr>
+                            <tr id="td">
+                                <td>ORD0001</td>
+                                <td>맥북 프로 16 외 2건</td>
+                                <td>4개</td>
+                                <td>3,647,000원</td>
+                                <td>2026-01-20 14:30</td>
+                                <td>본사 회의실</td>
+                            </tr>
+                            <tr id="td">
+                                <td>ORD0002</td>
+                                <td>아이폰 17 pro</td>
+                                <td>4개</td>
+                                <td>3,647,000원</td>
+                                <td>2026-01-20 14:30</td>
+                                <td>강남 지점</td>
+                            </tr>
+                            <tr id="td">
+                                <td>ORD0003</td>
+                                <td>갤럭시 25+</td>
+                                <td>4개</td>
+                                <td>3,647,000원</td>
+                                <td>2026-01-20 14:30</td>
+                                <td>안산 지점</td>
+                            </tr>
+                        </table>
+                    </div>
 
                 </div>
             </div>
-        
+
         </div> <!-- 본문 end -->
 
 
@@ -50,10 +126,10 @@
         <!-- 푸터 -->
         <div id="footer">
             <div id="footer_inner">
-               
-               
-               
-               
+
+
+
+
                 <h3>임시임시임시</h3>
 
 
@@ -68,4 +144,5 @@
 
     <script src="./js/member.js"></script>
 </body>
+
 </html>

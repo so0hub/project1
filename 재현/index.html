@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OurShop AI Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+<div class="wrapper">
+    <header>
+        <h1 class="logo">Our<span>Shop</span> AI</h1>
+    </header>
+
+    <!-- 상단 카드 -->
+    <section class="top-cards">
+        <div class="card purple">
+            <h3>📱 카테고리별 판매 비중</h3>
+            <div class="chart-box">
+                <canvas id="categoryChart"></canvas>
+            </div>
+            <p class="desc" id="categoryDesc">데이터 로딩 중...</p>
+        </div>
+
+        <div class="card green">
+            <h3>👥 성별 구매 비중</h3>
+            <div class="chart-box">
+                <canvas id="genderChart"></canvas>
+            </div>
+            <p class="desc" id="genderDesc">데이터 로딩 중...</p>
+        </div>
+
+        <div class="card orange">
+            <h3>📅 페르소나별 매출</h3>
+            <div class="chart-box">
+                <canvas id="ageChart"></canvas>
+            </div>
+            <p class="desc" id="ageDesc">데이터 로딩 중...</p>
+        </div>
+    </section>
+
+    <!-- 메인 영역 -->
+    <div class="main-grid">
+        <div class="panel input-panel">
+            <h2>👤 고객 정보 입력</h2>
+
+            <div class="f-group">
+                <label>나이</label>
+                <input type="number" id="age" value="25" min="18" max="100">
+            </div>
+
+            <div class="f-group">
+                <label>성별</label>
+                <select id="gender">
+                    <option value="M">남성</option>
+                    <option value="F">여성</option>
+                </select>
+            </div>
+
+            <div class="f-group">
+                <label>예상 구매가</label>
+                <input type="number" id="price" value="1200000" step="10000">
+            </div>
+
+            <div class="f-group">
+                <label>구매 월</label>
+                <select id="month">
+                    <option value="1">1월</option>
+                    <option value="2">2월</option>
+                    <option value="3">3월</option>
+                    <option value="4">4월</option>
+                    <option value="5">5월</option>
+                    <option value="6">6월</option>
+                    <option value="7">7월</option>
+                    <option value="8">8월</option>
+                    <option value="9">9월</option>
+                    <option value="10">10월</option>
+                    <option value="11">11월</option>
+                    <option value="12">12월</option>
+                </select>
+            </div>
+
+            <button onclick="startAnalysis()">🔍 AI 추천 분석</button>
+        </div>
+
+        <div class="panel result-panel">
+            <div id="init-msg" class="init-msg">
+                정보 입력 후 버튼을 눌러주세요.
+            </div>
+
+            <div id="loading" class="loading" style="display:none;">
+                🤖 AI가 분석 중입니다...
+            </div>
+
+            <div id="final-result" style="display:none;">
+                <div class="res-box">
+                    <span class="tag">📊 모델 성능</span>
+                    <h4 id="res-model"></h4>
+                    <p id="res-accuracy"></p>
+                </div>
+
+                <div class="res-box">
+                    <span class="tag ai">🤖 AI 추천 결과</span>
+                    <h4 id="res-predict"></h4>
+                    <p id="res-detail"></p>
+                    <div class="p-bar-bg">
+                        <div id="res-bar"></div>
+                    </div>
+                </div>
+
+                <div class="res-box">
+                    <span class="tag">🎯 2순위 추천</span>
+                    <h4 id="res-second"></h4>
+                    <div class="p-bar-bg">
+                        <div id="res-bar2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="module" src="script.js"></script>
+</body>
+</html>

@@ -100,14 +100,16 @@ function productPrint(){
         let prd = obj[i];
         let categoryName = '';
         for( let j = 0 ; j <= categories.length-1 ; j++){
-            if(categories.categoryCode == prd.categoryCode){
-                categoryName = categories.categoryName
+            let cat = categories[j];
+            if(cat.categoryCode == prd.categoryCode){
+                categoryName = cat.categoryName
             }
-        } console.log(categoryName);
+        }
         let currentStock = '';
         for( let u = 0 ; u <= inventories.length-1 ; u++){
-            if(inventories.productCode == prd.productCode){
-                currentStock = inventories.currentStock
+            let inv = inventories[u];
+            if(inv.productCode == prd.productCode){
+                currentStock = inv.currentStock
             }
         }
 

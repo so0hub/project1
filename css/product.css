@@ -5,8 +5,6 @@ li{ list-style-type: none;}
 a{ text-decoration: none; color: black;}
 body{ background-color: #F8FAFC;}
 
-img{width: 15px; margin-right: 8px;} /*지워야 함*/
-
 
 /* ================ 폰트 ================ */
 
@@ -72,7 +70,7 @@ img{width: 15px; margin-right: 8px;} /*지워야 함*/
     justify-items: center;
 }
 .m_s_title{
-    width: 906px; height: 24px; font-size: 16px;
+    width: 906px; height: 24px;
     padding-top: 30px; padding-bottom: 50px ;
     font-size: 20px; color: #0F172B;
 }
@@ -106,10 +104,26 @@ img{width: 15px; margin-right: 8px;} /*지워야 함*/
     background-color: #4F39F6; color: white;
     border-radius: 6px; border: none;
 }
-
-
-
-
+.m_s_list{  /* 제품 등록 영역 */
+    width: 906px; padding-bottom: 50px;
+}
+.m_s_list > table{
+    width: 906px;    border-collapse: collapse;    
+}
+.m_s_list > table > thead{
+    background-color: #E2E8F0; 
+    border: 1px solid black; border-radius: 100px;
+}
+.m_s_list > table > thead > tr > th{
+    font-size: 17px; color: #0F172B;
+    border-bottom: solid 1px #e9ebee; font-weight: 400;
+    padding: 10px 0;
+}
+.m_s_list > table > tbody > tr > td{
+    font-size: 17px; text-align: center;
+    border-bottom: solid 1px #e9ebee; 
+    padding: 10px 0;
+}
 
 
 
@@ -150,10 +164,11 @@ img{width: 15px; margin-right: 8px;} /*지워야 함*/
     margin: 10px 0;
     font-weight: 500;
 }
+#footer img{width: 15px; margin-right: 8px;}
 #footer_bottom{
     border-top: solid 1px #BABABA;
     width: 100%; background-color: #373D4D;
-    color: #E0E0E0; font-size: 15px;
+    color: #e0e0e0ab; font-size: 15px;
     font-weight: 100;
 }
 #footer_inner_bottom{  
@@ -162,6 +177,6 @@ img{width: 15px; margin-right: 8px;} /*지워야 함*/
     padding: 40px 25px;
 }
 #footer_inner_bottom > div{
-    word-spacing: 8px;
-    letter-spacing: 2px;
+    word-spacing: 5px;
+    letter-spacing: 3px;
 }

@@ -408,3 +408,25 @@ button:active {
   color: transparent;
   margin-bottom: 30px;
 }
+.cluster-section { margin-top: 18px; }
+.cluster-panel { padding: 18px; }
+.cluster-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.cluster-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+.cluster-controls select {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid #e5e7eb;
+  background: #fff;
+}
+.cluster-chart { height: 320px; }

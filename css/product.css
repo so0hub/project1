@@ -75,15 +75,19 @@ body{ background-color: #F8FAFC;}
 .pNameInput{
     width: 445px; padding: 12px 8px; 
     border-radius: 6px; border: 1px solid #CAD5E2;
+    margin-right: 20px;
 }
 
-.invsearchbtn{ border-radius: 6px; border: 1px solid #CAD5E2;
+.invsearchbtn{ 
+    justify-content: space-between;
+    border-radius: 6px; border: 1px solid #CAD5E2;
     background-color: #4F39F6; color: white;
  width: 70px; height: 45px;}
 
 
 #pdt_name_search > table > thead{
     background-color: #E2E8F0;
+    height: 35px;
 }
 
 #pdt_name_search > table{
@@ -91,10 +95,11 @@ width: 900px;
 }
 #pdt_list_body td{
     text-align: center;
+    padding: 30px;
     
 }
-#pdt_list_body td > button{background-color: red;
-border: 1px solid #eeeeee; padding: 5px;
+#pdt_list_body td > button{background-color: #E0E0E0;
+border: 1px solid #eeeeee; padding: 7px;
 border-radius: 10px; }
     
 

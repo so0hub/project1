@@ -124,16 +124,13 @@ body{ background-color: #F8FAFC;}
     border-bottom: solid 1px #e9ebee; 
     padding: 10px 0;
 }
-.m_s_tbody{
-
-}
 .m_s_tbody > tr > td > button{
     width: 70px; background-color: #9645D6 ;
     color: white; border: none;
     padding: 10px 0; border-radius: 5px;
 }
 .m_s_tbody img{
-    max-width: 64px;
+    max-width: 64px; max-height: 64px;
     object-fit: cover;
 }
 

@@ -3,13 +3,13 @@
 
 
 // 1. products 변수 설정
-let products = JSON.parse(localStorage.getItem("products"));
+products = JSON.parse(localStorage.getItem("products"));
 if(!products){
     products=defaultProductList;
     localStorage.setItem("products",JSON.stringify(products));
 }
 // 2. inventories 변수 설정 (여기가 핵심! 에러 해결 부분)
-let inventories = JSON.parse(localStorage.getItem("inventories"));
+inventories = JSON.parse(localStorage.getItem("inventories"));
 if (!inventories) {
     inventories = defaultInventories;
     localStorage.setItem("inventories", JSON.stringify(inventories));

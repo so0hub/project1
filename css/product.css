@@ -108,11 +108,10 @@ body{ background-color: #F8FAFC;}
     width: 906px; padding-bottom: 50px;
 }
 .m_s_list > table{
-    width: 906px;    border-collapse: collapse;    
+    width: 906px; border-collapse: collapse;    
 }
 .m_s_list > table > thead{
-    background-color: #E2E8F0; 
-    border: 1px solid black; border-radius: 100px;
+    background-color: #E2E8F0;
 }
 .m_s_list > table > thead > tr > th{
     font-size: 17px; color: #0F172B;
@@ -124,7 +123,13 @@ body{ background-color: #F8FAFC;}
     border-bottom: solid 1px #e9ebee; 
     padding: 10px 0;
 }
+.m_s_tbody{
 
+}
+.m_s_tbody img{
+    max-width: 64px;
+    object-fit: cover;
+}
 
 
 

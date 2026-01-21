@@ -1,6 +1,3 @@
-// [1] 메모리 설계
-// 1. 저장할 데이터 객체로 구성
-
 const members = [
     { "memberCode": "U0001", "memberName": "김민준", "status": "ACTIVE", "joinDate": "2022-03-15", "gender": "M", "age": 28 },
     { "memberCode": "U0002", "memberName": "이서연", "status": "ACTIVE", "joinDate": "2022-05-22", "gender": "F", "age": 24 },
@@ -514,6 +511,15 @@ const categories = [
 ];
 
 
+const products = [
+    { "productCode": "P001", "productName": "Galaxy S24 Ultra", "brand": "Samsung", "price": 1450000, "image": "galaxy_s24_ultra.jpg", "categoryCode": "C01" },
+    { "productCode": "P002", "productName": "iPhone 15 Pro Max", "brand": "Apple", "price": 1500000, "image": "iphone_15_pro_max.jpg", "categoryCode": "C01" },
+    { "productCode": "P003", "productName": "Pixel 8 Pro", "brand": "Google", "price": 1180000, "image": "pixel_8_pro.jpg", "categoryCode": "C01" },
+    { "productCode": "P004", "productName": "Galaxy Z Fold 5", "brand": "Samsung", "price": 1420000, "image": "galaxy_z_fold_5.jpg", "categoryCode": "C01" },
+    { "productCode": "P005", "productName": "OnePlus 12", "brand": "OnePlus", "price": 950000, "image": "oneplus_12.jpg", "categoryCode": "C01" }
+];
+
+
 
 const inventories = [
     { "inventoryCode": "INV001", "productCode": "P001", "currentStock": 45, "status": "IN_STOCK", "updatedDate": "2024-12-15" },
@@ -849,174 +855,15 @@ const orderItems = [
     }
 ];
 
-const products = [
-    { "productCode": "P001", "productName": "Galaxy S24 Ultra", "brand": "Samsung", "price": 1450000, "image": "galaxy_s24_ultra.jpg", "categoryCode": "C01" },
-    { "productCode": "P002", "productName": "iPhone 15 Pro Max", "brand": "Apple", "price": 1500000, "image": "iphone_15_pro_max.jpg", "categoryCode": "C01" },
-    { "productCode": "P003", "productName": "Pixel 8 Pro", "brand": "Google", "price": 1180000, "image": "pixel_8_pro.jpg", "categoryCode": "C01" },
-    { "productCode": "P004", "productName": "Galaxy Z Fold 5", "brand": "Samsung", "price": 1420000, "image": "galaxy_z_fold_5.jpg", "categoryCode": "C01" },
-    { "productCode": "P005", "productName": "OnePlus 12", "brand": "OnePlus", "price": 950000, "image": "oneplus_12.jpg", "categoryCode": "C01" }
-];
+
+/* [2] 기능설계
+제품검색목록: 제품 검색, 제품 출력
+1. 제품 검색: 
 
 
-// [2] 기능 설계
-// 제품 재고 검색 영역 : 제품 목록
-// 재고 조회 함수 , 제품 출력함수(제품명,수량,상태) , 재고 수정 함수
+*/
 
-// 제품 조회 함수 inventorySearch ] 매개변수 : x , 리턴값 : x , 
-// 처리 : 
-// (1) 사용자가 입력한 제품명을 가져온다.
-// (2) products 장부에서 그 이름과 일치하는 데이터를 찾아 productCoude를 알아낸다.
-// (3) 그 코드를 들고 inventories 장부로 가서 수량(currentStock)과 상태(status)를 찾는다.
-// (4) 찾은 제품명 , 수량 , 상태를 화면에 출력한다.
-// 실행조건 : 검색 버튼 클릭
+// [3-1] 입력함수
 
 
-// 출력 함수 printResult] 
-// 매개변수 : name , stock , status
-// 리턴값 : x(화면에 출력하고 끝)
-// 처리 :
-// (1) HTML에서 결과가 들어갈 자리를 찾는다. ex:id="result-box" 인 곳
-// (2) 그 자리에 매개변수로 받은 name, stock, status를 넣는다.
-
-
-// [3] 제품 영역 구현
-// [3-1] 재고 조회 함수
-
-
-function inventorySearch() {
-    // (1) 사용자가 입력한 제품명을 가져온다.
-    const inputName = document.querySelector(".pNameInput").value;
-
-    // (2) products 장부에서 그 이름과 일치하는 데이터를 찾아 productCode를 알아낸다.
-    let foundProduct = null;
-    for (let i = 0; i < products.length; i++) {
-        if (products[i].productName === inputName) {
-            foundProduct = products[i]; // 제품 찾음!
-            break;
-        } // if END
-    } // for END
-
-    if (foundProduct == null) {
-        alert("해당 제품이 없습니다.");
-        return;
-    } // if END
-
-    // (3) 찾은 코드로 inventories 장부로 가서 재고와 상태 찾기
-    let foundInventory = null;
-    for (let j = 0; j < inventories.length; j++) {
-        // 제품 장부에서 찾은 코드와 재고 장부의 코드가 같은지 비교
-        if (inventories[j].productCode === foundProduct.productCode) {
-            foundInventory = inventories[j];
-            break;
-
-        } // if END
-    } // for END
-
-    // 찾은 데이터를 출력함수로 던져주기
-    if (foundInventory != null) {
-        printResult(foundProduct.productName, foundInventory.currentStock, foundInventory.status);
-    } else {
-        alert("재고 정보가 없습니다.");
-    }
-
-} // inventorySearch() END
-
-
-
-// [3-2] 출력 함수
-// (4) 찾은 제품명 , 수량 , 상태를 화면에 출력한다.
-printResult();
-function printResult() {
-    const tbody = document.querySelector("#pdt_list_body");
-    let html = ``;
-    for (let index = 0; index <= inventories.length - 1; index++) {
-        let inv = inventories[index];
-
-
-        //제품코드로 제품명으로 바꿈
-        let proname = "";
-
-        for (let index2=0; index2 <= products.length-1;index2++){
-            let pro = products[index2];
-            if(pro.productCode==inv.productCode){
-                proname = pro.productName
-                break;
-
-            }
-        }
-
-
-        // 영문재고를 한글로 바꿈
-        let statuskr = "";
-        if (inv.status === "IN_STOCK") {
-            statuskr = "재고있음";
-        }
-        else if (inv.status === "LOW_STOCK") {
-            statuskr = "품절임박";
-        }
-        else if (inv.status === "OUT_OF_STOCK") {
-            statuskr = "품절";
-        }
-        else { statuskr = inv.status; }
-
-
-        html += `         <tr>
-            <td>${proname}</td>
-            <td>${inv.currentStock}</td>
-            <td>${statuskr}</td>
-            <td><button onclick="stockUpdate('${inv.inventoryCode}')">수정</button></td>
-        </tr>`;
-    }
-    tbody.innerHTML = html;
-
-}
-
-
-
-// [3-3] 수정 함수
-function stockUpdate(inventoryCode) {
-    for (let index = 0; index <= inventories.length - 1; index++) {
-        if (inventoryCode == inventories[index].inventoryCode) {
-            const newInventory = prompt("선택한 제품의 재고 수량을 입력하세요.(숫자만)");
-            inventories[index].currentStock = newInventory;
-            printResult();
-            break;
-        }
-
-        // 재고량에 따라 상태(품절여부)도 바꾸고 싶다 ㅠㅠ
-        if(inventories[index].currentStock == 0){
-            inventories[index].status = "OUT_OF_STOCK";}
-            else if(inventories[index].currentStock <= 5)
-                 {inventories[index].status="LOW_STOCK";}
-
-    
-}
-}
-
-
-
-/*****************************************************************/
-/* 하단 영역
-
-
-// [1] 기능 설계
-// 판매 제품 검색 영역 : 제품 목록 
-// 판매 중인 제품 조회 함수 , 제품 출력함수(이미지,제품명,카테고리,브랜드,가격,수량,관리)
-// 판매 수량 수정 함수
-
-// 판매 중인 제품 조회 함수 productSearch ] 매개변수 : x , 리턴값 : x
-// 처리 : 
-// (1) 사용자가 입력한 제품명,카테고리명,브랜드명,최소 가격 입력값과 최대 가격 입력값을 가져온다.
-// (2) products 장부에서 제품명과 일치하는 데이터를 찾아 productCode를 알아낸다.
-    categories 장부에서 카테고리명과 일치하는 데이터를 찾아 categoryCode를 알아낸다.
-    그 코드를 들고 product 장부로 가서 product()
-
-
-
-// 제품 조회 함수 inventorySearch ] 매개변수 : x , 리턴값 : x , 
-// 처리 : 
-// (1) 사용자가 입력한 제품명을 가져온다.
-// (2) products 장부에서 그 이름과 일치하는 데이터를 찾아 productCoude를 알아낸다.
-// (3) 그 코드를 들고 inventories 장부로 가서 수량(currentStock)과 상태(status)를 찾는다.
-// (4) 찾은 제품명 , 수량 , 상태를 화면에 출력한다.
-// 실행조건 : 검색 버튼 클릭
+// [3-2] 출력함수

@@ -4,8 +4,7 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+
    
 </head>
 <body>
@@ -14,7 +13,7 @@
     <div id="pdt_top">
         <h4 id="pdt_top_title">제품 재고</h4>
         <h3 id="pdt_top_title2">제품명 검색</h3>
-        <input class="pdt_search" placeholder="제품명을 입력하세요">
+        <input class="pNameInput" placeholder="제품명을 입력하세요"><button onclick="inventorySearch()">검색</button>
 
         <div id="pdt_name_search">
             <table>
@@ -23,10 +22,12 @@
                         <th>제품명</th>
                         <th>수량</th>
                         <th>상태</th>
+                        <th>관리</th>
                     </tr>
                 </thead>
 
                 <tbody id="pdt_list_body">
+                  
                     
                 </tbody>
             </table>
@@ -36,8 +37,11 @@
     </div> <!--pdt_top END-->
 
     <div id="pdt_bottom">
-        <h4 id="pdt_bottom_title"></h4>
+        <h4 id="pdt_bottom_title">제품 검색</h4>
 
+        <input class="" placeholder="제품명 입력"><input class="" placeholder="브랜드 입력"><br/>
+        <input class="" placeholder="카테고리 입력"><input class="" placeholder="최소가격">~<input class="" placeholder="최대가격">
+        
     </div> <!--pdt_bottom END-->
 
     

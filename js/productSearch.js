@@ -1,18 +1,21 @@
-const defaultcategories = [
+const defaultCategories = [
     { "categoryCode": "C01", "categoryName": "Smartphone" },
     { "categoryCode": "C02", "categoryName": "Laptop" },
     { "categoryCode": "C03", "categoryName": "Mouse" },
     { "categoryCode": "C04", "categoryName": "Keyboard" }
 ];
 
-const defaultinventories = [{"inventoryCode": "INV001", "productCode": "P001", "currentStock": 45, "status": "IN_STOCK", "updatedDate": "2024-12-15"}];
+const defaultInventories = [
+    {"inventoryCode": "INV001", "productCode": "P001", "currentStock": 45, "status": "IN_STOCK", "updatedDate": "2024-12-15"},
+    {"inventoryCode": "INV002", "productCode": "P002", "currentStock": 32, "status": "IN_STOCK", "updatedDate": "2024-12-18"},
+];
 
-const defaultproducts = [
-    { "productCode": "P001", "productName": "Galaxy S24 Ultra", "brand": "Samsung", "price": 1450000, "image": "galaxy_s24_ultra.jpg", "categoryCode": "C01" },
-    { "productCode": "P002", "productName": "iPhone 15 Pro Max", "brand": "Apple", "price": 1500000, "image": "iphone_15_pro_max.jpg", "categoryCode": "C01" },
-    { "productCode": "P003", "productName": "Pixel 8 Pro", "brand": "Google", "price": 1180000, "image": "pixel_8_pro.jpg", "categoryCode": "C01" },
-    { "productCode": "P004", "productName": "Galaxy Z Fold 5", "brand": "Samsung", "price": 1420000, "image": "galaxy_z_fold_5.jpg", "categoryCode": "C01" },
-    { "productCode": "P005", "productName": "OnePlus 12", "brand": "OnePlus", "price": 950000, "image": "oneplus_12.jpg", "categoryCode": "C01" }
+const defaultProductList = [
+    { "productCode": "P001", "productName": "Galaxy S24 Ultra", "brand": "Samsung", "price": 1450000, "image": "galaxy_s24_ultra.jpg", "categoryCode": "C01", "img": "https://images.samsung.com/kdp/static/mkt/smartphones/galaxy-s24-ultra/images/galaxy-s24-ultra-highlights-kv-mo-sec-low.jpg?imbypass=true" },
+    { "productCode": "P002", "productName": "iPhone 15 Pro Max", "brand": "Apple", "price": 1500000, "image": "iphone_15_pro_max.jpg", "categoryCode": "C01", "img": "https://cdsassets.apple.com/live/7WUAS350/images/tech-specs/iphone-15-pro-max.png" },
+    { "productCode": "P003", "productName": "Pixel 8 Pro", "brand": "Google", "price": 1180000, "image": "pixel_8_pro.jpg", "categoryCode": "C01" , "img": "https://img.danawa.com/prod_img/500000/281/584/img/28584281_2.jpg?shrink=500:*&_v=20231016084115"},
+    { "productCode": "P004", "productName": "Galaxy Z Fold 5", "brand": "Samsung", "price": 1420000, "image": "galaxy_z_fold_5.jpg", "categoryCode": "C01", "img": "https://i5.walmartimages.com/seo/Samsung-Galaxy-Z-Fold5-5G-256GB-12GB-7-6-Factory-Unlocked-GSM-CDMA-F946U-Excellent-Used_ddf12b9c-6deb-415b-a446-add8e54e3712.add07d22146791629d70a2dd675183a7.jpeg"},
+    { "productCode": "P005", "productName": "OnePlus 12", "brand": "OnePlus", "price": 950000, "image": "oneplus_12.jpg", "categoryCode": "C01" , "img": "https://cdn.kalvo.com/uploads/img/large/57369-oneplus-12.jpg"}
 ];
 
 
@@ -21,8 +24,9 @@ const defaultproducts = [
 - 제품 검색: 제품 검색함수(입력), 제품 출력함수(찾아서 보여주기), 제품 수정함수
 */
 
-localStorage.setItem("defaultproducts", JSON.stringify(defaultproducts));
-localStorage.setItem("defaultcategories", JSON.stringify(defaultcategories));
+localStorage.setItem("defaultProductList", JSON.stringify(defaultProductList));
+localStorage.setItem("defaultCategories", JSON.stringify(defaultCategories));
+localStorage.setItem("defaultInventories", JSON.stringify(defaultInventories));
 
 let obj = [];
 
@@ -44,8 +48,8 @@ function productSearch(){
 
     if(productName==""&&brand==""&&priceMin==""&&priceMax==""&&categoryCode=='disabled'){alert("검색하실 상품 정보를 입력하십시오."); }
 
-    // localStorage 활용 defaultproducts 호출
-    let products = localStorage.getItem("defaultproducts");
+    // localStorage 활용 defaultProductList 호출
+    let products = localStorage.getItem("defaultProductList");
     if( products == null ){
         products = [];
     }else{
@@ -77,20 +81,20 @@ productPrint()
 function productPrint(){
 
     //호출
-    // localStorage 활용 defaultcategories 호출
-    let categories = localStorage.getItem("defaultcategories");
+    // localStorage 활용 defaultCategories 호출
+    let categories = localStorage.getItem("defaultCategories");
     if( categories == null ){
         categories = [];
     }else{
         categories = JSON.parse(categories);
-    } console.log(categories)
-    // localStorage 활용 defaultcategoryCode 호출
-    let inventories = localStorage.getItem("defaultinventories");
+    } 
+    // localStorage 활용 defaultInventories 호출
+    let inventories = localStorage.getItem("defaultInventories");
     if( inventories == null ){
         inventories = [];
     }else{
         inventories = JSON.parse(inventories);
-    }
+    } console.log(inventories)
 
     // 1. 어디에?
     const tbody = document.querySelector(".m_s_tbody");
@@ -102,21 +106,21 @@ function productPrint(){
         for( let j = 0 ; j <= categories.length-1 ; j++){
             let cat = categories[j];
             if(cat.categoryCode == prd.categoryCode){
-                categoryName = cat.categoryName
+                categoryName = cat.categoryName;
             }
         }
         let currentStock = '';
         for( let u = 0 ; u <= inventories.length-1 ; u++){
             let inv = inventories[u];
             if(inv.productCode == prd.productCode){
-                currentStock = inv.currentStock
+                currentStock = inv.currentStock;
             }
-        }
+        } 
 
         console.log(prd)
 
         html += `<tr>
-                    <td><img src="img/ourshop.png"/></td>
+                    <td><img src="${prd.img}"/></td>
                     <td>${prd.productName}</td><td>${categoryName}</td>
                     <td>${prd.brand}</td><td>${prd.price}</td><td>${currentStock}</td>
                     <td><button onclick="productUpdate()">수정하기</button></td>
@@ -127,6 +131,6 @@ function productPrint(){
 
 // [3-3] 수정함수
 function productUpdate(){
-
+    
 }
 

@@ -772,11 +772,11 @@ const defaultOrderItemList = [
 ];
 
 const defaultProductList = [
-    { "productCode": "P001", "productName": "Galaxy S24 Ultra", "brand": "Samsung", "price": 1450000, "categoryCode": "C01" },
-    { "productCode": "P002", "productName": "iPhone 15 Pro Max", "brand": "Apple", "price": 1500000, "categoryCode": "C01" },
-    { "productCode": "P003", "productName": "Pixel 8 Pro", "brand": "Google", "price": 1180000, "categoryCode": "C01" },
-    { "productCode": "P004", "productName": "Galaxy Z Fold 5", "brand": "Samsung", "price": 1420000, "categoryCode": "C01" },
-    { "productCode": "P005", "productName": "OnePlus 12", "brand": "OnePlus", "price": 950000, "categoryCode": "C01" }
+    { "productCode": "P001", "productName": "Galaxy S24 Ultra", "brand": "Samsung", "price": 1450000, "image": "galaxy_s24_ultra.jpg", "categoryCode": "C01", "img": "https://images.samsung.com/kdp/static/mkt/smartphones/galaxy-s24-ultra/images/galaxy-s24-ultra-highlights-kv-mo-sec-low.jpg?imbypass=true" },
+    { "productCode": "P002", "productName": "iPhone 15 Pro Max", "brand": "Apple", "price": 1500000, "image": "iphone_15_pro_max.jpg", "categoryCode": "C01", "img": "https://cdsassets.apple.com/live/7WUAS350/images/tech-specs/iphone-15-pro-max.png" },
+    { "productCode": "P003", "productName": "Pixel 8 Pro", "brand": "Google", "price": 1180000, "image": "pixel_8_pro.jpg", "categoryCode": "C01", "img": "https://img.danawa.com/prod_img/500000/281/584/img/28584281_2.jpg?shrink=500:*&_v=20231016084115" },
+    { "productCode": "P004", "productName": "Galaxy Z Fold 5", "brand": "Samsung", "price": 1420000, "image": "galaxy_z_fold_5.jpg", "categoryCode": "C01", "img": "https://i5.walmartimages.com/seo/Samsung-Galaxy-Z-Fold5-5G-256GB-12GB-7-6-Factory-Unlocked-GSM-CDMA-F946U-Excellent-Used_ddf12b9c-6deb-415b-a446-add8e54e3712.add07d22146791629d70a2dd675183a7.jpeg" },
+    { "productCode": "P005", "productName": "OnePlus 12", "brand": "OnePlus", "price": 950000, "image": "oneplus_12.jpg", "categoryCode": "C01", "img": "https://cdn.kalvo.com/uploads/img/large/57369-oneplus-12.jpg" }
 ];
 
 const defaultCategories = [
@@ -875,7 +875,7 @@ let orderList = defaultOrderList;
 let orderItemList = defaultOrderItemList;
 let productList = defaultProductList;
 let categories = defaultCategories;
-let inventories =  defaultInventories;
+let inventories = defaultInventories;
 
 function saveToLocalStorage() {
     localStorage.setItem('memberList', JSON.stringify(memberList));

@@ -5,6 +5,8 @@ const defaultcategories = [
     { "categoryCode": "C04", "categoryName": "Keyboard" }
 ];
 
+const defaultinventories = [{"inventoryCode": "INV001", "productCode": "P001", "currentStock": 45, "status": "IN_STOCK", "updatedDate": "2024-12-15"}];
+
 const defaultproducts = [
     { "productCode": "P001", "productName": "Galaxy S24 Ultra", "brand": "Samsung", "price": 1450000, "image": "galaxy_s24_ultra.jpg", "categoryCode": "C01" },
     { "productCode": "P002", "productName": "iPhone 15 Pro Max", "brand": "Apple", "price": 1500000, "image": "iphone_15_pro_max.jpg", "categoryCode": "C01" },
@@ -20,6 +22,7 @@ const defaultproducts = [
 */
 
 localStorage.setItem("defaultproducts", JSON.stringify(defaultproducts));
+localStorage.setItem("defaultcategories", JSON.stringify(defaultcategories));
 
 let obj = [];
 
@@ -69,8 +72,6 @@ console.log(obj);
 productPrint();
 }
 
-console.log(obj);
-
 // [3-2] 출력함수
 productPrint()
 function productPrint(){
@@ -82,7 +83,7 @@ function productPrint(){
         categories = [];
     }else{
         categories = JSON.parse(categories);
-    }
+    } console.log(categories)
     // localStorage 활용 defaultcategoryCode 호출
     let inventories = localStorage.getItem("defaultinventories");
     if( inventories == null ){
@@ -96,22 +97,30 @@ function productPrint(){
     // 2. 무엇을?
     let html = ``;
     for(let i = 0 ; i<= obj.length-1 ; i++){
-        let prd = obj[i];        
-        for( let j = 0 ; j <= categoryCode.length-1 ; j++){
+        let prd = obj[i];
+        let categoryName = '';
+        for( let j = 0 ; j <= categories.length-1 ; j++){
             if(categories.categoryCode == prd.categoryCode){
-                categories.categoryName = prd.
+                categoryName = categories.categoryName
+            }
+        } console.log(categoryName);
+        let currentStock = '';
+        for( let u = 0 ; u <= inventories.length-1 ; u++){
+            if(inventories.productCode == prd.productCode){
+                currentStock = inventories.currentStock
             }
         }
 
-
+        console.log(prd)
 
         html += `<tr>
                     <td><img src="img/ourshop.png"/></td>
-                    <td>${prd.productName}</td><td>${카테고리}</td>
-                    <td>${prd.brand}</td><td>${prd.price}</td><td>${수량}</td>
+                    <td>${prd.productName}</td><td>${categoryName}</td>
+                    <td>${prd.brand}</td><td>${prd.price}</td><td>${currentStock}</td>
                     <td><button onclick="productUpdate()">수정하기</button></td>
                 </tr>`
     }
+    tbody.innerHTML = html;
 }
 
 // [3-3] 수정함수

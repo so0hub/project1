@@ -122,7 +122,7 @@ function productPrint(){
                     <td><img src="${prd.img}"/></td>
                     <td>${prd.productName}</td><td>${categoryName}</td>
                     <td>${prd.brand}</td><td>${Number(prd.price).toLocaleString()}</td><td>${currentStock}</td>
-                    <td><button onclick="productUpdate(${prd.productCode})">수정하기</button></td>
+                    <td><button onclick="productUpdate('${prd.productCode}')">수정하기</button></td>
                 </tr>`
     }
     tbody.innerHTML = html;

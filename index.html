@@ -1,84 +1,217 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
+
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>제품 관리 대시보드</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' href="./css/index.css"/>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>OurShop AI Dashboard</title>
+  <link rel="stylesheet" href="css/index.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
+
 <body>
-    
-    <!-- 전체 -->
-    <div id="wrap">
 
-        <!-- 헤더 -->
-        <div id="header">
-            <div id="header_inner">
-                <img class="h_logo" src="/img/ourshop.png">
-                <div class="h_center">
-                    <a href="index.html" class="h_btn">홈</a>
-                    <a href="product.html" class="h_btn">제품관리</a>
-                    <a href="member.html" class="h_btn">회원관리</a>
-                </div>
+  <!-- 전체 래퍼 -->
+  <div id="wrap">
+
+    <!-- ✅ 헤더 -->
+    <div id="header">
+      <div id="header_inner">
+        <img class="h_logo" src="img/ourshop.png" alt="로고" />
+        <div class="h_center">
+          <a href="index.html" class="h_btn">홈</a>
+          <a href="product.html" class="h_btn">제품관리</a>
+          <a href="member.html" class="h_btn">회원관리</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ✅ 본문: AI 대시보드 -->
+    <div class="wrapper">
+      <header>
+        <h1 class="logo">Our<span>Shop</span> AI</h1>
+      </header>
+
+      <!-- 상단 카드 -->
+      <section class="top-cards">
+        <!-- 차트 1 -->
+        <div class="card purple">
+          <h3>📱 카테고리별 판매 비중</h3>
+          <div class="chart-box">
+            <canvas id="categoryChart"></canvas>
+          </div>
+          <p class="desc" id="categoryDesc">데이터 로딩 중...</p>
+        </div>
+        <!-- 차트 2 -->
+        <div class="card green">
+          <h3>👥 성별 구매 비중</h3>
+          <div class="gender-kpi">
+            <span id="genderKpiM"></span>
+            <span id="genderKpiF"></span>
+          </div>
+          <!-- ✅ 원형 차트 대신 '막대 2개' UI -->
+          <div class="gender-bars">
+            <div class="g-row">
+              <div class="g-label">남성</div>
+              <div class="g-bar-bg">
+                <div class="g-bar g-m" id="gBarM"></div>
+              </div>
+              <div class="g-val" id="gValM">0%</div>
             </div>
-        </div> <!-- 헤더 end -->
 
-
-
-        <!-- 본문 -->
-        <div id="main">
-        
-        </div> <!-- 본문 end -->
-
-
-
-        <!-- 푸터 -->
-        <div id="footer">
-            <div id="footer_inner_top">
-                <div class="f_infor">
-                    <h2>OurShop</h2>
-                    <div>홈쇼핑 판매자를 위한<br/>
-                         올인원 관리 솔루션</div>
-                    <div><img src="img/mail.png">support@shopadmin.com</div>
-                    <div><img src="img/phone.png">1588-0000</div>
-                </div>                
-                <div class="f_link">
-                    <ul>
-                        <li><h3>빠른 링크</h3></li>
-                        <li>대시보드</li>
-                        <li>제품관리</li>
-                        <li>주문 관리</li>
-                        <li>고객 관리</li>
-                    </ul>
-                </div>
-                <div class="f_link">
-                    <ul>
-                        <li><h3>고객 지원</h3></li>
-                        <li>도움말 센터</li>
-                        <li>이용 약관</li>
-                        <li>개인정보 처리방침</li>
-                    </ul>
-                </div>
-                <div class="f_link">
-                    <ul><li><h3>고객센터 운영시간</h3></li>
-                        <li>평일:  09:00 - 18:00</li>
-                        <li>휴무일:  주말 및 공휴일</li>
-                        <li>점심시간:  12:00 - 13:00</li>
-                    </ul>
-                </div>                
+            <div class="g-row">
+              <div class="g-label">여성</div>
+              <div class="g-bar-bg">
+                <div class="g-bar g-f" id="gBarF"></div>
+              </div>
+              <div class="g-val" id="gValF">0%</div>
             </div>
-        </div> <!-- 푸터 end -->
-        <div id="footer_bottom">
-            <div id="footer_inner_bottom">
-                <div>© 2026 ShopAdmin. All rights reserved. </div>
-                <div>사업자등록번호:    123-45-67890        |     대표: 홍길동</div>
-            </div>
+          </div>
+
+          <p class="desc" id="genderDesc">데이터 로딩 중...</p>
         </div>
 
-    </div> <!-- 전체 end -->
+        <!-- 차트 3 -->
+        <div class="card orange">
+          <h3>📈 월별 매출 추이</h3>
+          <div class="chart-box">
+            <canvas id="monthlyChart"></canvas>
+          </div>
+          <p class="desc" id="monthlyDesc">데이터 로딩 중...</p>
+        </div>
 
+      </section>
 
-    <script src="js/index.js"></script>
+      <!-- 분석 영역 -->
+      <div class="main-grid">
+        <div class="panel input-panel">
+          <h2>👤 고객 정보 입력</h2>
+
+          <div class="f-group">
+            <label>나이</label>
+            <input type="number" id="age" value="25" min="18" max="100" />
+          </div>
+
+          <div class="f-group">
+            <label>성별</label>
+            <select id="gender">
+              <option value="M">남성</option>
+              <option value="F">여성</option>
+            </select>
+          </div>
+
+          <div class="f-group">
+            <label>예상 구매가</label>
+            <input type="number" id="price" value="1200000" step="10000" />
+          </div>
+
+          <div class="f-group">
+            <label>구매 월</label>
+            <select id="month">
+              <option value="1">1월</option>
+              <option value="2">2월</option>
+              <option value="3">3월</option>
+              <option value="4">4월</option>
+              <option value="5">5월</option>
+              <option value="6">6월</option>
+              <option value="7">7월</option>
+              <option value="8">8월</option>
+              <option value="9">9월</option>
+              <option value="10">10월</option>
+              <option value="11">11월</option>
+              <option value="12">12월</option>
+            </select>
+          </div>
+
+          <button onclick="startAnalysis()">🔍 AI 추천 분석</button>
+        </div>
+
+        <div class="panel result-panel">
+          <div id="init-msg" class="init-msg">정보 입력 후 버튼을 눌러주세요.</div>
+          <div id="loading" class="loading" style="display: none;">🤖 AI가 분석 중입니다...</div>
+          <div id="final-result" style="display: none;">
+            <div class="res-box">
+              <span class="tag">📊 모델 성능</span>
+              <h4 id="res-model"></h4>
+              <p id="res-accuracy"></p>
+            </div>
+
+            <div class="res-box">
+              <span class="tag ai">🤖 AI 추천 결과</span>
+              <h4 id="res-predict"></h4>
+              <p id="res-detail"></p>
+              <div class="p-bar-bg">
+                <div id="res-bar"></div>
+              </div>
+            </div>
+
+            <div class="res-box">
+              <span class="tag">🎯 2순위 추천</span>
+              <h4 id="res-second"></h4>
+              <div class="p-bar-bg">
+                <div id="res-bar2"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ✅ 푸터 -->
+    <div id="footer">
+      <div id="footer_inner_top">
+        <div class="f_infor">
+          <h2>OurShop</h2>
+          <div>홈쇼핑 판매자를 위한<br />올인원 관리 솔루션</div>
+          <div><img src="img/mail.png" alt="">support@shopadmin.com</div>
+          <div><img src="img/phone.png" alt="">1588-0000</div>
+        </div>
+        <div class="f_link">
+          <ul>
+            <li>
+              <h3>빠른 링크</h3>
+            </li>
+            <li>대시보드</li>
+            <li>제품관리</li>
+            <li>주문 관리</li>
+            <li>고객 관리</li>
+          </ul>
+        </div>
+        <div class="f_link">
+          <ul>
+            <li>
+              <h3>고객 지원</h3>
+            </li>
+            <li>도움말 센터</li>
+            <li>이용 약관</li>
+            <li>개인정보 처리방침</li>
+          </ul>
+        </div>
+        <div class="f_link">
+          <ul>
+            <li>
+              <h3>고객센터 운영시간</h3>
+            </li>
+            <li>평일: 09:00 - 18:00</li>
+            <li>주말 및 공휴일 휴무</li>
+            <li>점심시간: 12:00 - 13:00</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div id="footer_bottom">
+      <div id="footer_inner_bottom">
+        <div>© 2026 ShopAdmin. All rights reserved.</div>
+        <div>사업자등록번호: 123-45-67890 | 대표: 홍길동</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ✅ JS 연결 -->
+  <script type="module" src="js/index.js"></script>
 </body>
+
 </html>

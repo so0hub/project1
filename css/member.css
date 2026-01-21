@@ -88,7 +88,7 @@ img{width: 15px; margin-right: 8px;} /*지워야 함*/
 #footer > #footer_inner_top{ 
     width: 1280px; margin: 0 auto; 
     display: flex; justify-content: space-between; align-items: center;
-    padding: 40px 0px;
+    padding: 40px 30px;
     
     display: flex; justify-content: space-between;
     align-items: start;
@@ -120,7 +120,7 @@ img{width: 15px; margin-right: 8px;} /*지워야 함*/
 #footer_inner_bottom{  
     width: 1280px; margin: 0 auto; 
     display: flex; justify-content: space-between; align-items: center;
-    padding: 40px 0px;
+    padding: 40px 25px;
 }
 #footer_inner_bottom > div{
     word-spacing: 8px;

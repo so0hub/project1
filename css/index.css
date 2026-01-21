@@ -259,138 +259,86 @@ body, html, #wrap {
    헤더 / 로고 정렬 및 크기 고정
 ================================ */
 
-/* 헤더 전체 바 */
-#header {
-    width: 100%;
-    background: white;
-    border-bottom: 1px solid #e5e7eb;
+/* ================ 헤더 ================ */
+
+#header{ 
+    width: 100%; background-color: white; 
+    border-bottom-left-radius: 30px; border-bottom-right-radius: 30px;
+    border-bottom: #D9D9D9 solid 1px;
 }
-
-/* 헤더 내부 정렬 */
-#header_inner {
-    max-width: 1280px;
-    margin: 0 auto;
-    height: 70px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    padding: 0 20px;
+#header > #header_inner{ 
+    width: 1280px; margin: 0 auto; 
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 25px 0px;
 }
-
-/* 로고 이미지 크기 제한 */
-.h_logo {
-    height: 40px;        /* 핵심 */
-    width: auto;        /* 비율 유지 */
-    object-fit: contain;
+.h_logo{ width: 139px;}
+.h_center{
+    width: 1100px;
 }
-
-/* 메뉴 영역 중앙 정렬 */
-.h_center {
-    display: flex;
-    gap: 30px;
+.h_btn{
+    border: solid 3px white;
+    padding: 10px 20px; margin-right: 30px;
+    border-radius: 10px; font-size: 20px;
 }
-
-/* 메뉴 버튼 스타일 */
-.h_btn {
-    font-size: 15px;
-    font-weight: 600;
-    color: #334155;
-    padding: 8px 14px;
-    border-radius: 8px;
-    transition: background 0.2s;
-}
-
-.h_btn:hover {
-    background: #f1f5f9;
+.h_btn:hover{
+    border: solid 3px transparent;
+    border-radius: 10px;
+    background-image: linear-gradient(#fff, #fff), linear-gradient(to right bottom, #3499DA , #9645D6);
+    background-origin: border-box; background-clip: padding-box, border-box;
 }
 
 /* ===============================
    Footer 정렬 + 이미지 크기 고정
 ================================ */
-
-/* 푸터 전체 */
-#footer {
-  width: 100%;
-  background: #0f172a;      /* 필요 없으면 바꾸세요 */
-  color: #e2e8f0;
-  margin-top: 60px;
+#footer li{ list-style-type: none;}
+/* ================ 푸터 ================ */
+#footer{
+    width: 100%; background-color: #373D4D; margin-top: 50px;
+    border-top-left-radius: 30px; border-top-right-radius: 30px;
+    color: #E0E0E0; font-size: 15px;
+    font-weight: 100;
 }
-
-/* 상단 푸터 내부 */
-#footer_inner_top {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 40px 20px;
-
-  display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr 1fr;
-  gap: 30px;
+#footer > #footer_inner_top{ 
+    width: 1280px; margin: 0 auto; 
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 40px 30px;
+    
+    display: flex; justify-content: space-between;
+    align-items: start;
 }
-
-/* OurShop 정보 영역 */
-.f_infor h2 {
-  margin: 0 0 12px 0;
-  font-size: 20px;
-  font-weight: 800;
-  color: #ffffff;
+.f_infor > div{
+    margin: 10px 0;
 }
-
-.f_infor div {
-  margin: 10px 0;
-  line-height: 1.5;
-  font-size: 14px;
-
-  display: flex;           /* 아이콘 + 텍스트 정렬 */
-  align-items: center;
-  gap: 10px;
+.f_infor > h2{  /*폰트 컬러 바꾸기 인터넷 찾아봤습니다.*/
+    width: 150px; font-size: 30px;
+    background-image: linear-gradient(to right bottom, #3499DA, #9645D6);
+    background-clip: text; -webkit-background-clip: text; color: transparent;
 }
-
-/* ✅ 푸터 아이콘 크기 고정(핵심) */
-.f_infor img {
-  width: 16px;
-  height: 16px;
-  object-fit: contain;
-  flex: 0 0 16px;
+.f_link > ul > li{
+    margin-top: 5px;
 }
-
-/* 링크 컬럼 */
-.f_link ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.f_link > ul > li > a{
+    color: #E0E0E0; font-size: 15px;
 }
-
-.f_link h3 {
-  margin: 0 0 12px 0;
-  font-size: 16px;
-  font-weight: 700;
-  color: #ffffff;
+.f_link > ul > li > h3{
+    margin: 10px 0;
+    font-weight: 500;
 }
-
-.f_link li {
-  margin: 10px 0;
-  font-size: 14px;
-  opacity: 0.95;
+#footer img{width: 15px; margin-right: 8px;}
+#footer_bottom{
+    border-top: solid 1px #BABABA;
+    width: 100%; background-color: #373D4D;
+    color: #e0e0e0ab; font-size: 15px;
+    font-weight: 100;
 }
-
-/* 푸터 하단 바 */
-#footer_bottom {
-  border-top: 1px solid rgba(255,255,255,0.08);
-  background: #0b1220;
+#footer_inner_bottom{  
+    width: 1280px; margin: 0 auto; 
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 40px 25px;
 }
-
-#footer_inner_bottom {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 18px 20px;
-
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  font-size: 13px;
-  color: #94a3b8;
+#footer_inner_bottom > div{
+    word-spacing: 5px;
+    letter-spacing: 3px;
 }
 
 /* 반응형 */

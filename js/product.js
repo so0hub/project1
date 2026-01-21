@@ -849,13 +849,19 @@ const orderItems = [
     }
 ];
 
-const products = [
+const defaultproducts = [
     { "productCode": "P001", "productName": "Galaxy S24 Ultra", "brand": "Samsung", "price": 1450000, "image": "galaxy_s24_ultra.jpg", "categoryCode": "C01" },
     { "productCode": "P002", "productName": "iPhone 15 Pro Max", "brand": "Apple", "price": 1500000, "image": "iphone_15_pro_max.jpg", "categoryCode": "C01" },
     { "productCode": "P003", "productName": "Pixel 8 Pro", "brand": "Google", "price": 1180000, "image": "pixel_8_pro.jpg", "categoryCode": "C01" },
     { "productCode": "P004", "productName": "Galaxy Z Fold 5", "brand": "Samsung", "price": 1420000, "image": "galaxy_z_fold_5.jpg", "categoryCode": "C01" },
     { "productCode": "P005", "productName": "OnePlus 12", "brand": "OnePlus", "price": 950000, "image": "oneplus_12.jpg", "categoryCode": "C01" }
 ];
+
+
+localStorage.setItem('defaultproducts','');
+console.log(localStorage.getItem('productName'));
+
+
 
 
 // [2] 기능 설계
@@ -884,6 +890,7 @@ const products = [
 
 
 function inventorySearch() {
+    
     // (1) 사용자가 입력한 제품명을 가져온다.
     const inputName = document.querySelector(".pNameInput").value;
 
@@ -958,12 +965,20 @@ function printResult() {
             statuskr = "품절";
         }
         else { statuskr = inv.status; }
+        
+        let selectedIn = (inv.status === "IN_STOCK")?"selected":"";
+        let selectedLow = (inv.status === "LOW_STOCK")?"selected":"";
+        let selectedOut = (inv.status === "OUT_OF_STOCK")?"selected":"";
 
 
         html += `         <tr>
             <td>${proname}</td>
             <td>${inv.currentStock}</td>
-            <td>${statuskr}</td>
+            <td><select id="status_${inv.inventoryCode}">
+            <option value="IN_STOCK" ${selectedIn}>재고있음</option>
+            <option value="LOW_STOCK" ${selectedLow}>품절임박</option>
+            <option value="OUT_OF_STOCK" ${selectedOut}>품절</option>
+            </select></td>
             <td><button onclick="stockUpdate('${inv.inventoryCode}')">수정</button></td>
         </tr>`;
     }
@@ -977,46 +992,24 @@ function printResult() {
 function stockUpdate(inventoryCode) {
     for (let index = 0; index <= inventories.length - 1; index++) {
         if (inventoryCode == inventories[index].inventoryCode) {
+            
+            // 수량 수정
             const newInventory = prompt("선택한 제품의 재고 수량을 입력하세요.(숫자만)");
-            inventories[index].currentStock = newInventory;
+
+            // 상태 수정
+            const selectBox = document.querySelector(`#status_${inventoryCode}`);
+            const newStatus = selectBox.value; // 사용자가 선택한 값
+
+            // inventories데이터장부에 반영
+            inventories[index].currentStock=newInventory;
+            inventories[index].status=newStatus;
+           
+
+
             printResult();
+
+            alert("수정되었습니다.")
             break;
         }
-
-        // 재고량에 따라 상태(품절여부)도 바꾸고 싶다 ㅠㅠ
-        if(inventories[index].currentStock == 0){
-            inventories[index].status = "OUT_OF_STOCK";}
-            else if(inventories[index].currentStock <= 5)
-                 {inventories[index].status="LOW_STOCK";}
-
-    
 }
 }
-
-
-
-/*****************************************************************/
-/* 하단 영역
-
-
-// [1] 기능 설계
-// 판매 제품 검색 영역 : 제품 목록 
-// 판매 중인 제품 조회 함수 , 제품 출력함수(이미지,제품명,카테고리,브랜드,가격,수량,관리)
-// 판매 수량 수정 함수
-
-// 판매 중인 제품 조회 함수 productSearch ] 매개변수 : x , 리턴값 : x
-// 처리 : 
-// (1) 사용자가 입력한 제품명,카테고리명,브랜드명,최소 가격 입력값과 최대 가격 입력값을 가져온다.
-// (2) products 장부에서 제품명과 일치하는 데이터를 찾아 productCode를 알아낸다.
-    categories 장부에서 카테고리명과 일치하는 데이터를 찾아 categoryCode를 알아낸다.
-    그 코드를 들고 product 장부로 가서 product()
-
-
-
-// 제품 조회 함수 inventorySearch ] 매개변수 : x , 리턴값 : x , 
-// 처리 : 
-// (1) 사용자가 입력한 제품명을 가져온다.
-// (2) products 장부에서 그 이름과 일치하는 데이터를 찾아 productCoude를 알아낸다.
-// (3) 그 코드를 들고 inventories 장부로 가서 수량(currentStock)과 상태(status)를 찾는다.
-// (4) 찾은 제품명 , 수량 , 상태를 화면에 출력한다.
-// 실행조건 : 검색 버튼 클릭

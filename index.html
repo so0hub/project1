@@ -82,6 +82,30 @@
         </div>
 
       </section>
+<!-- ✅ 군집분석 시각화 패널 -->
+<section class="cluster-section">
+  <div class="panel cluster-panel">
+    <div class="cluster-head">
+      <h2>🧩 고객 군집(Cluster) 시각화</h2>
+      <div class="cluster-controls">
+        <label>표시 클러스터</label>
+        <select id="clusterFilter">
+          <option value="all">전체</option>
+          <option value="0">Cluster 0</option>
+          <option value="1">Cluster 1</option>
+          <option value="2">Cluster 2</option>
+          <option value="3">Cluster 3</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="chart-box cluster-chart">
+      <canvas id="clusterChart"></canvas>
+    </div>
+
+    <p class="desc" id="clusterDesc">데이터 로딩 중...</p>
+  </div>
+</section>
 
       <!-- 분석 영역 -->
       <div class="main-grid">

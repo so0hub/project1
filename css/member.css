@@ -1,49 +1,9 @@
 /* ================ 전체 ================ */
 
-* {
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
-}
-
-li {
-    list-style-type: none;
-}
-
-a {
-    text-decoration: none;
-    color: black;
-}
-
-body {
-    background-color: #F8FAFC;
-}
-
-* {
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
-}
-
-li {
-    list-style-type: none;
-}
-
-a {
-    text-decoration: none;
-    color: black;
-}
-
-body {
-    background-color: #F8FAFC;
-}
-
-img {
-    width: 15px;
-    margin-right: 8px;
-}
-
-/*지워야 함*/
+*{ padding: 0px; margin: 0px; box-sizing: border-box;}
+li{ list-style-type: none;}
+a{ text-decoration: none; color: black;}
+body{ background-color: #F8FAFC;}
 
 
 /* ================ 폰트 ================ */
@@ -325,17 +285,12 @@ td.date {
     font-size: 15px;
     font-weight: 100;
 }
-
-#footer>#footer_inner_top {
-    width: 1280px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px 0px;
-
-    display: flex;
-    justify-content: space-between;
+#footer > #footer_inner_top{ 
+    width: 1280px; margin: 0 auto; 
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 40px 30px;
+    
+    display: flex; justify-content: space-between;
     align-items: start;
 }
 
@@ -366,26 +321,19 @@ td.date {
     margin: 10px 0;
     font-weight: 500;
 }
-
-#footer_bottom {
+#footer img{width: 15px; margin-right: 8px;}
+#footer_bottom{
     border-top: solid 1px #BABABA;
-    width: 100%;
-    background-color: #373D4D;
-    color: #E0E0E0;
-    font-size: 15px;
+    width: 100%; background-color: #373D4D;
+    color: #e0e0e0ab; font-size: 15px;
     font-weight: 100;
 }
-
-#footer_inner_bottom {
-    width: 1280px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px 0px;
+#footer_inner_bottom{  
+    width: 1280px; margin: 0 auto; 
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 40px 25px;
 }
-
-#footer_inner_bottom>div {
-    word-spacing: 8px;
-    letter-spacing: 2px;
+#footer_inner_bottom > div{
+    word-spacing: 5px;
+    letter-spacing: 3px;
 }

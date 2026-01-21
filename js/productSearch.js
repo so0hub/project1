@@ -122,7 +122,7 @@ function productPrint(){
         html += `<tr>
                     <td><img src="${prd.img}"/></td>
                     <td>${prd.productName}</td><td>${categoryName}</td>
-                    <td>${prd.brand}</td><td>${prd.price}</td><td>${currentStock}</td>
+                    <td>${prd.brand}</td><td>${Number(prd.price).toLocaleString()}</td><td>${currentStock}</td>
                     <td><button onclick="productUpdate()">수정하기</button></td>
                 </tr>`
     }
@@ -131,6 +131,6 @@ function productPrint(){
 
 // [3-3] 수정함수
 function productUpdate(){
-    
+
 }
 

@@ -18,12 +18,32 @@ a {
 body {
     background-color: #F8FAFC;
 }
-*{ padding: 0px; margin: 0px; box-sizing: border-box;}
-li{ list-style-type: none;}
-a{ text-decoration: none; color: black;}
-body{ background-color: #F8FAFC;}
 
-img{width: 15px; margin-right: 8px;} /*지워야 함*/
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    background-color: #F8FAFC;
+}
+
+img {
+    width: 15px;
+    margin-right: 8px;
+}
+
+/*지워야 함*/
 
 
 /* ================ 폰트 ================ */
@@ -50,25 +70,38 @@ img{width: 15px; margin-right: 8px;} /*지워야 함*/
     border-bottom-right-radius: 30px;
     border-bottom: #D9D9D9 solid 1px;
 }
-#header > #header_inner{ 
-    width: 1280px; margin: 0 auto; 
-    display: flex; justify-content: space-between; align-items: center;
+
+#header>#header_inner {
+    width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 25px 0px;
 }
-.h_logo{ width: 139px;}
-.h_center{
+
+.h_logo {
+    width: 139px;
+}
+
+.h_center {
     width: 1100px;
 }
-.h_btn{
+
+.h_btn {
     border: solid 3px white;
-    padding: 10px 20px; margin-right: 30px;
-    border-radius: 10px; font-size: 20px;
+    padding: 10px 20px;
+    margin-right: 30px;
+    border-radius: 10px;
+    font-size: 20px;
 }
-.h_btn:hover{
+
+.h_btn:hover {
     border: solid 3px transparent;
     border-radius: 10px;
-    background-image: linear-gradient(#fff, #fff), linear-gradient(to right bottom, #3499DA , #9645D6);
-    background-origin: border-box; background-clip: padding-box, border-box;
+    background-image: linear-gradient(#fff, #fff), linear-gradient(to right bottom, #3499DA, #9645D6);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
 }
 
 
@@ -77,121 +110,202 @@ img{width: 15px; margin-right: 8px;} /*지워야 함*/
 #main_board {
     width: 1280px;
     display: flex;
-    justify-content: center;
-    margin: 0 auto;
+    justify-content: space-between;
+    margin: 40px auto;
+    align-items: flex-start;
 }
 
-#main_board>div {
-    margin: 20px;
-    padding: 10px;
+.section-header {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
 }
 
-#member {
-    width: 30%;
+/* ================ 왼쪽: 회원 관리 ================ */
+
+#member-section {
+    width: 350px;
     background-color: white;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
     padding: 20px;
-    margin-right: 30px;
-    border-radius: 15px;
-    border: 2px solid #eeeeee;
-    box-shadow: 2px 2px 4px #333333;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    margin-right: 20px;
 }
 
-#member_id{
-  width: 350px;
-  border: 2px solid #eeeeee;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  margin-top: 10px;
-}
-
-#member_id > div{
+.search-container {
     display: flex;
     justify-content: space-between;
-    padding: 15px 15px;
-    
+    background-color: white;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    padding: 5px;
+    margin-bottom: 20px;
 }
 
-.we{
-    background-color: rgba(23, 181, 157, 0.142);
-    color: green;
+.search-container input {
     border: none;
-    padding: 5px 10px;
-    border-radius: 10px;
-    margin-top: -5px;
+    outline: none;
+    padding: 10px;
+    font-size: 14px;
+    width: 100%;
 }
 
-#member_id > button{
-    width: 330px;
-    display: block;
-    margin: 0 auto;
-    padding: 8px 0px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    background-color: #000000 ;
+.search-container .btn-search {
+    background-color: #5d5fef;
     color: white;
     border: none;
-    border-radius: 10px;
+    border-radius: 6px;
+    padding: 0 20px;
+    cursor: pointer;
+    font-weight: 500;
+    white-space: nowrap;
+    /* 버튼 글자 줄바꿈 방지 */
 }
 
-.q{
-    font-size: 12px;
-    margin: -25px 0px;
 
-}
-
-
-/* ================================ payment ================================== */
-#payment {
-    width: 70%;
+.member-card {
     background-color: white;
-    padding: 10px;
-    border-radius: 15px;
-    border: 2px solid #eeeeee;
-    box-shadow: 2px 2px 4px #333333;
+    border: 1px solid #E2E8F0;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+
 }
 
-#payment>div {
-    padding: 10px;
-    margin-bottom: 10px;
+.member-card:last-child {
+    margin-bottom: 0;
 }
 
-#payment>div>table {
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.badge.active {
+    background-color: #E6F7F3;
+    color: #00B69B;
+}
+
+.badge.wait {
+    background-color: #FFF8EB;
+    color: #EEA23E;
+}
+
+.card-info {
+    margin-bottom: 20px;
+}
+
+.info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.info-row .label {
+    color: #64748B;
+}
+
+.info-row .value {
+    color: #334155;
+    font-weight: 500;
+}
+
+.btn-delete {
     width: 100%;
-    text-align: center;
-    border: 2px solid #eeeeee;
+    padding: 12px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
 }
 
-#th {
+.btn-delete:hover {
+    background-color: #b90000;
+}
+
+
+/* ================ 오른쪽: 결제 내역 ================ */
+
+#payment-section {
+    flex-grow: 1;
+    background-color: white;
+    border: 1px solid #eeeeee;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.table-container {
+    width: 100%;
+    border: 1px solid #eeeeee;
+    /* 눈에 잘 띄는 진한 회색 테두리 */
+    border-radius: 12px;
+    /* 둥근 모서리 */
+    overflow: hidden;
+    /* 둥근 모서리 밖으로 테이블이 튀어나가지 않게 자름 */
+    margin-top: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-style: hidden;
+
+}
+
+th {
+    padding: 15px 10px;
+    color: #64748B;
+    font-size: 13px;
+    font-weight: 500;
+    border-bottom: 1px solid #eeeeee;
+    text-align: center;
     background-color: #F8FAFC;
 }
 
-#th>th {
-    padding: 20px;
-
+td {
+    padding: 20px 10px;
+    color: #334155;
+    font-size: 14px;
+    border-bottom: 1px solid #eeeeee;
+    vertical-align: middle;
+    text-align: center;
 }
 
-#td>td {
-    padding: 15px;
+
+td.product-name {
+    font-weight: 600;
+    color: #1E293B;
 }
 
+td.order-id {
+    color: #64748B;
+    font-size: 13px;
+}
 
+td.price {
+    font-weight: 600;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+td.date {
+    color: #64748B;
+    font-size: 13px;
+}
 
 
 
@@ -201,50 +315,77 @@ img{width: 15px; margin-right: 8px;} /*지워야 함*/
 
 
 /* ================ 푸터 ================ */
-#footer{
-    width: 100%; background-color: #373D4D; margin-top: 50px;
-    border-top-left-radius: 30px; border-top-right-radius: 30px;
-    color: #E0E0E0; font-size: 15px;
+#footer {
+    width: 100%;
+    background-color: #373D4D;
+    margin-top: 50px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    color: #E0E0E0;
+    font-size: 15px;
     font-weight: 100;
 }
-#footer > #footer_inner_top{ 
-    width: 1280px; margin: 0 auto; 
-    display: flex; justify-content: space-between; align-items: center;
+
+#footer>#footer_inner_top {
+    width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 40px 0px;
-    
-    display: flex; justify-content: space-between;
+
+    display: flex;
+    justify-content: space-between;
     align-items: start;
 }
-.f_infor > div{
+
+.f_infor>div {
     margin: 10px 0;
 }
-.f_infor > h2{  /*폰트 컬러 바꾸기 인터넷 찾아봤습니다.*/
-    width: 150px; font-size: 30px;
+
+.f_infor>h2 {
+    /*폰트 컬러 바꾸기 인터넷 찾아봤습니다.*/
+    width: 150px;
+    font-size: 30px;
     background-image: linear-gradient(to right bottom, #3499DA, #9645D6);
-    background-clip: text; -webkit-background-clip: text; color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
 }
-.f_link > ul > li{
+
+.f_link>ul>li {
     margin-top: 5px;
 }
-.f_link > ul > li > a{
-    color: #E0E0E0; font-size: 15px;
+
+.f_link>ul>li>a {
+    color: #E0E0E0;
+    font-size: 15px;
 }
-.f_link > ul > li > h3{
+
+.f_link>ul>li>h3 {
     margin: 10px 0;
     font-weight: 500;
 }
-#footer_bottom{
+
+#footer_bottom {
     border-top: solid 1px #BABABA;
-    width: 100%; background-color: #373D4D;
-    color: #E0E0E0; font-size: 15px;
+    width: 100%;
+    background-color: #373D4D;
+    color: #E0E0E0;
+    font-size: 15px;
     font-weight: 100;
 }
-#footer_inner_bottom{  
-    width: 1280px; margin: 0 auto; 
-    display: flex; justify-content: space-between; align-items: center;
+
+#footer_inner_bottom {
+    width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     padding: 40px 0px;
 }
-#footer_inner_bottom > div{
+
+#footer_inner_bottom>div {
     word-spacing: 8px;
     letter-spacing: 2px;
 }

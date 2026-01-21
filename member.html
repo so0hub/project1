@@ -30,101 +30,92 @@
 
         <!-- 본문 -->
         <div id="main">
-        
             <div id="main_board">
-                <div id="member">
-                    <div>
-                        <div>회원 관리</div>
-                        <div><input type="text" placeholder="회원 이름 검색" /><button onclick="">검색</button></div>
-                    </div>
-                    <div id="member_id">
-                        <div>
-                            <div>김민준</div><button class="we" onclick="">활성</button>
-                        </div>
-                        <div class="q">
-                            <div>가입일 : </div>
-                            <div>2026-01-20</div>
-                        </div>
 
-                        <div class="q">
-                            <div>성별 : </div>
-                            <div>남</div>
-                        </div>
+                <div id="member-section">
+                    <div class="section-header">회원 관리</div>
 
-                        <div class="q">
-                            <div>나이 : </div>
-                            <div>28세</div>
-                        </div>
-                        <button onclick="">회원탈퇴</button>
+                    <div class="search-container">
+                        <input type="text" placeholder="회원 이름 검색" />
+                        <button class="btn-search">검색</button>
                     </div>
 
-                    <div id="member_id">
-                        <div>
-                            <div>김민준</div><button class="we" onclick="">활성</button>
+                    <div class="member-card">
+                        <div class="card-top">
+                            <span class="member-name">김민준</span>
+                            <span class="badge active">활성</span>
                         </div>
-                        
-                        <div class="q">
-                            <div>가입일 : </div>
-                            <div>2026-01-20</div>
+                        <div class="card-info">
+                            <div class="info-row"><span class="label">가입일:</span> <span class="value">2024-03-15</span>
+                            </div>
+                            <div class="info-row"><span class="label">성별:</span> <span class="value">남</span></div>
+                            <div class="info-row"><span class="label">나이:</span> <span class="value">28세</span></div>
                         </div>
-
-                        <div class="q">
-                            <div>성별 : </div>
-                            <div>남</div>
-                        </div>
-
-                        <div class="q">
-                            <div>나이 : </div>
-                            <div>28세</div>
-                        </div>
-
-                        <button onclick="">회원탈퇴</button>
+                        <button class="btn-delete">회원탈퇴</button>
                     </div>
+
+                    <div class="member-card">
+                        <div class="card-top">
+                            <span class="member-name">이서연</span>
+                            <span class="badge active">활성</span>
+                        </div>
+                        <div class="card-info">
+                            <div class="info-row"><span class="label">가입일:</span> <span class="value">2024-05-22</span>
+                            </div>
+                            <div class="info-row"><span class="label">성별:</span> <span class="value">여</span></div>
+                            <div class="info-row"><span class="label">나이:</span> <span class="value">32세</span></div>
+                        </div>
+                        <button class="btn-delete">회원탈퇴</button>
+                    </div>
+
+
 
                 </div>
 
-                <div id="payment">
-                    <div>결제 내역</div>
-                    <div class="P">
-                        <table style="border-collapse : collapse;">
-                            <tr id="th">
-                                <th>주문번호</th>
-                                <th>제품명</th>
-                                <th>수량</th>
-                                <th>결제금액</th>
-                                <th>결제일시</th>
-                                <th>장소</th>
-                            </tr>
-                            <tr id="td">
-                                <td>ORD0001</td>
-                                <td>맥북 프로 16 외 2건</td>
-                                <td>4개</td>
-                                <td>3,647,000원</td>
-                                <td>2026-01-20 14:30</td>
-                                <td>본사 회의실</td>
-                            </tr>
-                            <tr id="td">
-                                <td>ORD0002</td>
-                                <td>아이폰 17 pro</td>
-                                <td>4개</td>
-                                <td>3,647,000원</td>
-                                <td>2026-01-20 14:30</td>
-                                <td>강남 지점</td>
-                            </tr>
-                            <tr id="td">
-                                <td>ORD0003</td>
-                                <td>갤럭시 25+</td>
-                                <td>4개</td>
-                                <td>3,647,000원</td>
-                                <td>2026-01-20 14:30</td>
-                                <td>안산 지점</td>
-                            </tr>
+                <div id="payment-section">
+                    <div class="section-header">결제 내역</div>
+                    <div class="table-container">
+                        <table style="border-collapse: collapse;">
+                            <thead>
+                                <tr>
+                                    <th>주문번호</th>
+                                    <th>제품명</th>
+                                    <th>수량</th>
+                                    <th>결제금액</th>
+                                    <th>결제일시</th>
+                                    <th>장소</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="order-id">ORD00001</td>
+                                    <td class="product-name">맥북 프로16 외 2건</td>
+                                    <td>4개</td>
+                                    <td class="price">3,647,000원</td>
+                                    <td class="date">2025-01-15 14:30</td>
+                                    <td>본사 회의실</td>
+                                </tr>
+                                <tr>
+                                    <td class="order-id">ORD00002</td>
+                                    <td class="product-name">아이폰15 Pro</td>
+                                    <td>1개</td>
+                                    <td class="price">1,550,000원</td>
+                                    <td class="date">2025-01-10 10:22</td>
+                                    <td>강남 지점</td>
+                                </tr>
+                                <tr>
+                                    <td class="order-id">ORD00003</td>
+                                    <td class="product-name">Air Pods Pro</td>
+                                    <td>2개</td>
+                                    <td class="price">598,000원</td>
+                                    <td class="date">2024-12-20 16:45</td>
+                                    <td>본사 회의실</td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
-
                 </div>
             </div>
-
         </div> <!-- 본문 end -->
 
 
@@ -134,14 +125,16 @@
             <div id="footer_inner_top">
                 <div class="f_infor">
                     <h2>OurShop</h2>
-                    <div>홈쇼핑 판매자를 위한<br/>
-                         올인원 관리 솔루션</div>
+                    <div>홈쇼핑 판매자를 위한<br />
+                        올인원 관리 솔루션</div>
                     <div><img src="img/mail.png">support@shopadmin.com</div>
                     <div><img src="img/phone.png">1588-0000</div>
-                </div>                
+                </div>
                 <div class="f_link">
                     <ul>
-                        <li><h3>빠른 링크</h3></li>
+                        <li>
+                            <h3>빠른 링크</h3>
+                        </li>
                         <li>대시보드</li>
                         <li>제품관리</li>
                         <li>주문 관리</li>
@@ -150,42 +143,47 @@
                 </div>
                 <div class="f_link">
                     <ul>
-                        <li><h3>고객 지원</h3></li>
+                        <li>
+                            <h3>고객 지원</h3>
+                        </li>
                         <li>도움말 센터</li>
                         <li>이용 약관</li>
                         <li>개인정보 처리방침</li>
                     </ul>
                 </div>
                 <div class="f_link">
-                    <ul><li><h3>고객센터 운영시간</h3></li>
-                        <li>평일:  09:00 - 18:00</li>
-                        <li>휴무일:  주말 및 공휴일</li>
-                        <li>점심시간:  12:00 - 13:00</li>
+                    <ul>
+                        <li>
+                            <h3>고객센터 운영시간</h3>
+                        </li>
+                        <li>평일: 09:00 - 18:00</li>
+                        <li>휴무일: 주말 및 공휴일</li>
+                        <li>점심시간: 12:00 - 13:00</li>
                     </ul>
-                </div>                
-            <div id="footer_inner">
+                </div>
+                <div id="footer_inner">
 
 
 
 
-                <h3>임시임시임시</h3>
+                    <h3>임시임시임시</h3>
 
 
 
 
+                </div>
+            </div> <!-- 푸터 end -->
+            <div id="footer_bottom">
+                <div id="footer_inner_bottom">
+                    <div>© 2026 ShopAdmin. All rights reserved. </div>
+                    <div>사업자등록번호: 123-45-67890 | 대표: 홍길동</div>
+                </div>
             </div>
-        </div> <!-- 푸터 end -->
-        <div id="footer_bottom">
-            <div id="footer_inner_bottom">
-                <div>© 2026 ShopAdmin. All rights reserved. </div>
-                <div>사업자등록번호:    123-45-67890        |     대표: 홍길동</div>
-            </div>
-        </div>
 
-    </div> <!-- 전체 end -->
+        </div> <!-- 전체 end -->
 
 
-    <script src="/js/member.js"></script>
+        <script src="/js/member.js"></script>
 </body>
 
 </html>

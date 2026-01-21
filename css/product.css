@@ -84,6 +84,7 @@ body{ background-color: #F8FAFC;}
 }
 .m_s_head > div > h3{
     font-size: 17px; color: #314158; font-weight: 500;
+    margin-bottom: 10px; margin-left: 3px; margin-top: 5px;
 }
 #m_search > .m_s_head > div >span{
     margin: 0 4px;
@@ -100,8 +101,8 @@ body{ background-color: #F8FAFC;}
     width: 906px; display: flex; text-align: right;
 }
 #m_search > .m_s_head > div > button{
-    width: 72.23px; height: 36px;
-    background-color: #4F39F6; color: white;
+    width: 60px; height: 36px; margin-top: 5px;
+    background-color: #9645D6 ; color: white;
     border-radius: 6px; border: none;
 }
 .m_s_list{  /* 제품 등록 영역 */
@@ -113,7 +114,7 @@ body{ background-color: #F8FAFC;}
 .m_s_list > table > thead{
     background-color: #E2E8F0;
 }
-.m_s_list > table > thead > tr > th{
+.m_s_list > table > thead > tr > th{    /* 추후에 nth인가 사용해서 width 설정하기. */
     font-size: 17px; color: #0F172B;
     border-bottom: solid 1px #e9ebee; font-weight: 400;
     padding: 10px 0;
@@ -125,6 +126,11 @@ body{ background-color: #F8FAFC;}
 }
 .m_s_tbody{
 
+}
+.m_s_tbody > tr > td > button{
+    width: 70px; background-color: #9645D6 ;
+    color: white; border: none;
+    padding: 10px 0; border-radius: 5px;
 }
 .m_s_tbody img{
     max-width: 64px;

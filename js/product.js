@@ -1019,4 +1019,4 @@ function stockUpdate(inventoryCode) {
 // (2) products 장부에서 그 이름과 일치하는 데이터를 찾아 productCoude를 알아낸다.
 // (3) 그 코드를 들고 inventories 장부로 가서 수량(currentStock)과 상태(status)를 찾는다.
 // (4) 찾은 제품명 , 수량 , 상태를 화면에 출력한다.
-// 실행조건 : 검색 버튼 클릭
+// 실행조건 : 검색 버튼 클릭*/

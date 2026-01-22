@@ -269,7 +269,6 @@ td.date {
     padding: 40px 30px;
     flex-wrap: wrap;
     display: flex; justify-content: space-between;
-    align-items: start; flex-direction: column;
 }
 .f_infor > div{
     margin: 10px 0;
@@ -300,7 +299,7 @@ td.date {
     width: 1280px; margin: 0 auto; 
     display: flex; justify-content: space-between; align-items: center;
     padding: 40px 25px;
-    flex-wrap: wrap; flex-direction: column; align-items: flex-start;
+    flex-wrap: wrap;
 }
 #footer_inner_bottom > div{
     word-spacing: 5px;

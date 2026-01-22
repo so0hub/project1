@@ -2,11 +2,11 @@
 // 즉! 로컬스토리지를 활용하자..
 // 로컬스토리지를 뒤진다.
 
-products = JSON.parse(localStorage.getItem("products"));
+products = JSON.parse(localStorage.getItem("productList"));
 
 // 저장소에 아무것도 없을 때 
 if(!products){
-    products=defaultProductList; // 기본데이터를 변수에 넣고,
+    products=defaultMemberList; // 기본데이터를 변수에 넣고,
     localStorage.setItem("products",JSON.stringify(products)); // 저장소에 저장
 }
 

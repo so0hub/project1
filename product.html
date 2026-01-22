@@ -49,16 +49,7 @@
                     </thead>
 
                     <tbody id="pdt_list_body">
-                        <tr>
-                            <td>예시</td>
-                            <td>예시</td>
-                            <td><select>
-                                <option>재고있음</option>
-                                <option>품절임박</option>
-                                <option>품절</option>
-                            </select></td>
-                            <td><button>수정</button></td>
-                        </tr>
+
 
                     </tbody>
                 </table>
@@ -87,24 +78,34 @@
                         <option value="C02">Laptop</option>
                         <option value="C03">Mouse</option>
                         <option value="C04">Keyboard</option>
-                    </select></div>
-                    <div><h3>가격대</h3> <input class="m_s_min" placeholder="최소 가격"/> <span>~</span> <input class="m_s_max" placeholder="최대 가격"/></div>
-                    <div class="m_s_h_b"><button onclick="productSearch()"> 검색 </button></div>
+                    </select>
                 </div>
-                <div class="m_s_list">
-                    <div class="m_s_title">제품 검색 목록</div>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>이미지</th><th>제품명</th><th>카테고리</th><th>브랜드</th><th>가격</th><th>수량</th><th>관리</th>
-                            </tr>
-                        </thead>
-                        <tbody class="m_s_tbody">
-                            
-                        </tbody>
-                    </table>
+                <div>
+                    <h3>가격대</h3> <input class="m_s_min" placeholder="최소 가격" /> <span>~</span> <input class="m_s_max"
+                        placeholder="최대 가격" />
                 </div>
+                <div class="m_s_h_b"><button onclick="productSearch()"> 검색 </button></div>
             </div>
+            <div class="m_s_list">
+                <div class="m_s_title">제품 검색 목록</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>이미지</th>
+                            <th>제품명</th>
+                            <th>카테고리</th>
+                            <th>브랜드</th>
+                            <th>가격</th>
+                            <th>수량</th>
+                            <th>관리</th>
+                        </tr>
+                    </thead>
+                    <tbody class="m_s_tbody">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
 
     </div> <!-- 본문 end -->
 
@@ -160,9 +161,9 @@
     </div>
 
     </div> <!-- 전체 end -->
-
+    <script src="/js/member.js"></script>
+    <script src="js/product.js"></script>
     <script src="js/productSearch.js"></script>
-    <!-- js 합쳐야 하나봐 -->
 
 </body>
 

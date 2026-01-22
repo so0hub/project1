@@ -24,9 +24,12 @@ const defaultProductList = [
 - 제품 검색: 제품 검색함수(입력), 제품 출력함수(찾아서 보여주기), 제품 수정함수
 */
 
-localStorage.setItem("defaultProductList", JSON.stringify(defaultProductList));
-localStorage.setItem("defaultCategories", JSON.stringify(defaultCategories));
-localStorage.setItem("defaultInventories", JSON.stringify(defaultInventories));
+if(!localStorage.getItem("defaultProductList")){localStorage.setItem("defaultProductList", JSON.stringify(defaultProductList))};
+if(!localStorage.getItem("defaultCategories")){localStorage.setItem("defaultCategories", JSON.stringify(defaultCategories))};
+if(!localStorage.getItem("defaultInventories")){localStorage.setItem("defaultInventories", JSON.stringify(defaultInventories))};
+// localStorage.setItem("defaultProductList", JSON.stringify(defaultProductList));
+// localStorage.setItem("defaultCategories", JSON.stringify(defaultCategories));
+// localStorage.setItem("defaultInventories", JSON.stringify(defaultInventories));
 
 let obj = [];
 

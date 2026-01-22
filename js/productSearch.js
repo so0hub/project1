@@ -4,7 +4,6 @@
 제품검색목록: 제품 검색, 제품 출력
 - 제품 검색: 제품 검색함수(입력), 제품 출력함수(찾아서 보여주기), 제품 수정함수
 */
-
 let obj = [];
 
 // localStorage 활용 defaultProductList 호출
@@ -16,7 +15,7 @@ let obj = [];
     }
 
 // [3-1] 검색함수
-function productSearch(){
+function productSearch() { 
     obj = [];
 
     // 1. 입력받은 값을 가져온다.
@@ -34,22 +33,30 @@ function productSearch(){
     if(productName==""&&brand==""&&priceMin==""&&priceMax==""&&categoryCode=='disabled'){alert("검색하실 상품 정보를 입력하십시오."); }
 
     // 2. 입력받은 값 찾아서 넣기...
-    for( let i = 0 ; i<=products.length-1 ; i++){
-        const product = products[i];
-        if(product.productName == productName){
-            obj.push(product);
+    for (let i = 0; i < products.length; i++) {
+        let prd = products[i];
+
+        let SearchTrue = true; // 일단 맞음
+        
+        if (productName != "" && prd.productName.includes(productName) == false) {
+            SearchTrue = false;
         }
-        if(product.brand == brand){
-            obj.push(product);
+        if (brand != "" && prd.brand.includes(brand) == false) {
+            SearchTrue = false;
         }
-        if(product.categoryCode == categoryCode){
-            obj.push(product);
+        if (categoryCode != 'disabled' && prd.categoryCode != categoryCode) {
+            SearchTrue = false;
         }
-        if(product.price >= priceMin && product.price <= priceMax){
-            obj.push(product);
+        let min = priceMin == "" ? 0 : Number(priceMin);
+        let max = priceMax == "" ? Infinity : Number(priceMax);
+        if (prd.price < min || prd.price > max) {
+            SearchTrue = false;
+        }
+        if (SearchTrue == true) {
+            obj.push(prd);
         }
     }
-productPrint();
+    productPrint();
 }
 
 //호출
@@ -104,19 +111,48 @@ function productPrint(){
 }
 
 // [3-3] 수정함수
-function productUpdate( productCode ){
-    for(let i = 0 ; i <= obj.length-1 ; i++){
-        let prd = obj[i]; console.log(prd)
-        if( productCode == prd.productCode){
-            const newProductName = prompt("수정할 이름을 입력하시오.");
-            const newBrand = prompt("수정할 브랜드명을 입력하시오.");
-            const newPrice = prompt("수정할 가격을 입력하시오.");
-            prd.productName = newProductName;
-            prd.brand = newBrand;
-            prd.price = newPrice;
-            break;
-        }
+function productUpdate(productCode) {
+    // 1. 어딨어 (재고는 안 건들고 상품 정보만 수정)
+    let productIndex = 0;
+    for (let i = 0; i < products.length; i++) {
+    if (products[i].productCode === productCode) {
+        productIndex = i; // 인덱스를 저장했다 기억해라
+        break;}
     }
+    if (productIndex === -1) {
+        alert("해당 상품을 찾을 수 없습니다.");
+        return;}
+
+    // 2. 입력해라
+    const newProductName = prompt("수정할 제품명을 입력하시오.");
+    const newBrand = prompt("수정할 브랜드명을 입력하시오.");
+    const newPrice = prompt("수정할 가격을 입력하시오.");
+
+    // 3. 뭔가 입력했다면 바꾸기 (취소 안 눌렀다면 그냥 두기)
+    if (newProductName !== null){products[productIndex].productName = newProductName;}
+    if (newBrand !== null){products[productIndex].brand = newBrand;}
+    if (newPrice !== null){products[productIndex].price = Number(newPrice);}
+
+    // 4. 로컬에 문자열로 저장
+    localStorage.setItem("productList", JSON.stringify(products));
+
+    // 5. 검색 리스트 동기화
+    let objIndex = 0;
+    for (let i = 0; i < obj.length; i++) {
+        if (obj[i].productCode === productCode) {
+            objIndex = i; // 또 인덱스를 저장했다
+            break;}
+    }
+    obj[objIndex].productName = products[productIndex].productName;
+    obj[objIndex].brand = products[productIndex].brand;
+    obj[objIndex].price = products[productIndex].price;
+    // // 2. 찾았을 경우(index가 -1이 아닐 때) 처리
+    // if (objIndex !== -1) {
+    //     // 스프레드(...) 대신 Object.assign을 사용하여 객체 복사
+    //     // 또는 새로운 빈 객체에 값을 하나하나 복사하는 방식입니다.
+    //     obj[objIndex] = Object.assign({}, products[productIndex]);
+    // }
+
+    // 6. 새로고침
     productPrint();
 }
-

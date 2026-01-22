@@ -425,31 +425,37 @@ let clusterChartInstance = null;
 let clusterRaw = null;
 
 async function loadClusterData() {
-  // 권장: data 폴더를 만들고 그 안에 cluster_points.json 배치
-  // 예) project1/data/cluster_points.json
-  const res = await fetch("data/cluster_points.json", { cache: "no-store" });
-  if (!res.ok) throw new Error("cluster_points.json 로드 실패");
-  return await res.json();
+    // 권장: data 폴더를 만들고 그 안에 cluster_points.json 배치
+    // 예) project1/data/cluster_points.json
+    const res = await fetch("data/cluster_points.json", { cache: "no-store" });
+    if (!res.ok) throw new Error("cluster_points.json 로드 실패");
+    return await res.json();
 }
 
 function buildClusterDatasets(points, filterValue) {
-  const byCluster = new Map();
+    const byCluster = new Map();
 
-  for (const p of points) {
-    if (filterValue !== "all" && String(p.cluster) !== String(filterValue)) continue;
-    if (!byCluster.has(p.cluster)) byCluster.set(p.cluster, []);
-    byCluster.get(p.cluster).push({
-      x: p.x,
-      y: p.y,
-      _meta: p // tooltip용 원본
-    });
-  }
-
-  // Chart.js는 dataset 단위로 색을 다르게 보이게 하려면 cluster별 dataset을 나누는 게 깔끔
-  const datasets = [];
+    for (const p of points) {
+        if (filterValue !== "all" && String(p.cluster) !== String(filterValue)) continue;
+        if (!byCluster.has(p.cluster)) byCluster.set(p.cluster, []);
+        byCluster.get(p.cluster).push({
+            x: p.x,
+            y: p.y,
+            _meta: p // tooltip용 원본
+        });
+    }
+    const clusterNameMap = {
+        0: " 고가 구매 남성 고객",
+        1: " 실속형 여성 고객",
+        2: " 모바일 쇼핑 선호 고객",
+        3: " 충성도 높은 반복 구매 고객"
+    };
+     const datasets = [];
   for (const [clusterId, arr] of byCluster.entries()) {
+    const name = clusterNameMap[clusterId] || `Cluster ${clusterId}`;
+
     datasets.push({
-      label: `Cluster ${clusterId}`,
+      label: name,          // ✅ 범례 + 툴팁에 이 이름이 표시됨
       data: arr,
       pointRadius: 4
     });
@@ -458,65 +464,65 @@ function buildClusterDatasets(points, filterValue) {
 }
 
 function renderClusterChart(clusterJson, filterValue = "all") {
-  const ctx = document.getElementById("clusterChart");
-  if (!ctx) return;
+    const ctx = document.getElementById("clusterChart");
+    if (!ctx) return;
 
-  const datasets = buildClusterDatasets(clusterJson.points, filterValue);
+    const datasets = buildClusterDatasets(clusterJson.points, filterValue);
 
-  if (clusterChartInstance) clusterChartInstance.destroy();
+    if (clusterChartInstance) clusterChartInstance.destroy();
 
-  clusterChartInstance = new Chart(ctx, {
-    type: "scatter",
-    data: { datasets },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: {
-        legend: { display: true },
-        tooltip: {
-          callbacks: {
-            label: (context) => {
-              const d = context.raw?._meta;
-              if (!d) return context.dataset.label;
-              // tooltip 구성 (필요한 항목만)
-              return [
-                `${context.dataset.label}`,
-                `age: ${d.age}, gender: ${d.gender}`,
-                `price: ${Number(d.price).toLocaleString()}원, month: ${d.month}`
-              ];
+    clusterChartInstance = new Chart(ctx, {
+        type: "scatter",
+        data: { datasets },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: true },
+                tooltip: {
+                    callbacks: {
+                        label: (context) => {
+                            const d = context.raw?._meta;
+                            if (!d) return context.dataset.label;
+                            // tooltip 구성 (필요한 항목만)
+                            return [
+                                `${context.dataset.label}`,
+                                `age: ${d.age}, gender: ${d.gender}`,
+                                `price: ${Number(d.price).toLocaleString()}원, month: ${d.month}`
+                            ];
+                        }
+                    }
+                }
+            },
+            scales: {
+                x: { title: { display: true, text: "Embedding X" } },
+                y: { title: { display: true, text: "Embedding Y" } }
             }
-          }
         }
-      },
-      scales: {
-        x: { title: { display: true, text: "Embedding X" } },
-        y: { title: { display: true, text: "Embedding Y" } }
-      }
-    }
-  });
+    });
 
-  const desc = document.getElementById("clusterDesc");
-  if (desc) {
-    const meta = clusterJson.meta || {};
-    desc.textContent = `방법: ${meta.method || "N/A"}, k=${meta.k ?? "N/A"}, 임베딩: ${meta.embedding || "N/A"} · 점 수: ${clusterJson.points?.length || 0}`;
-  }
+    const desc = document.getElementById("clusterDesc");
+    if (desc) {
+        const meta = clusterJson.meta || {};
+        desc.textContent = `방법: ${meta.method || "N/A"}, k=${meta.k ?? "N/A"}, 임베딩: ${meta.embedding || "N/A"} · 점 수: ${clusterJson.points?.length || 0}`;
+    }
 }
 
 async function initClusterViz() {
-  try {
-    clusterRaw = await loadClusterData();
-    renderClusterChart(clusterRaw, "all");
+    try {
+        clusterRaw = await loadClusterData();
+        renderClusterChart(clusterRaw, "all");
 
-    const filter = document.getElementById("clusterFilter");
-    if (filter) {
-      filter.addEventListener("change", (e) => {
-        renderClusterChart(clusterRaw, e.target.value);
-      });
+        const filter = document.getElementById("clusterFilter");
+        if (filter) {
+            filter.addEventListener("change", (e) => {
+                renderClusterChart(clusterRaw, e.target.value);
+            });
+        }
+    } catch (err) {
+        console.error(err);
+        const desc = document.getElementById("clusterDesc");
+        if (desc) desc.textContent = "군집 시각화 데이터를 불러오지 못했습니다. (data/cluster_points.json 확인)";
     }
-  } catch (err) {
-    console.error(err);
-    const desc = document.getElementById("clusterDesc");
-    if (desc) desc.textContent = "군집 시각화 데이터를 불러오지 못했습니다. (data/cluster_points.json 확인)";
-  }
 }
 

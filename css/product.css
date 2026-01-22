@@ -88,9 +88,11 @@ button:hover {cursor: pointer;}
  width: 70px; height: 47px;}
 
 
+
 #pdt_name_search > table > thead{
     background-color: #E2E8F0;
 }
+
 
 
 #pdt_name_search > table th{
@@ -99,6 +101,7 @@ button:hover {cursor: pointer;}
 
 #pdt_name_search > table{
 width: 900px;
+border-collapse: collapse;  /*제품명수량상태관리줄 공백없이 색깔 이어지게..*/
 }
 #pdt_list_body td{
     text-align: center;

@@ -39,12 +39,12 @@ function inventorySearch() {
     
     // (1) 사용자가 입력한 제품명을 가져온다.
     const inputName = document.querySelector(".pNameInput").value;
-
+    
 
     // (2) products 장부에서 그 이름과 일치하는 데이터를 찾아 productCode를 알아낸다.
     let foundProduct = null;
     for (let i = 0; i < products.length; i++) {
-        if (products[i].productName === inputName) {
+        if (String(products[i].productName).includes(inputName)) {
             foundProduct = products[i]; // 제품 찾음!
             break;
         } // if END

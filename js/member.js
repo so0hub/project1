@@ -870,6 +870,30 @@ const defaultInventories = [
 ];
 
 // [2] 로컬 스토리지 
+/* 
+[트러블 슈팅: 데이터 영구 저장 해결 방안]
+1. 로컬 스토리지에서 먼저 데이터를 가져옴
+const storedMemberList = JSON.parse(localStorage.getItem('memberList'));
+const storedOrderList = JSON.parse(localStorage.getItem('orderList'));
+const storedOrderItemList = JSON.parse(localStorage.getItem('orderItemList'));
+const storedProductList = JSON.parse(localStorage.getItem('productList'));
+const storedCategories = JSON.parse(localStorage.getItem('categories'));
+const storedInventories = JSON.parse(localStorage.getItem('inventories'));
+
+2. 저장된 데이터가 있으면 사용하고, 없으면 초기값 사용
+let memberList = storedMemberList || defaultMemberList;
+let orderList = storedOrderList || defaultOrderList;
+let orderItemList = storedOrderItemList || defaultOrderItemList;
+let productList = storedProductList || defaultProductList;
+let categories = storedCategories || defaultCategories;
+let inventories = storedInventories || defaultInventories;
+
+3. 최초 실행 시 로컬 스토리지에 데이터가 아예 없는 경우에만 저장
+if (!storedMemberList) {
+    saveToLocalStorage();
+}
+*/
+
 let memberList = defaultMemberList;
 let orderList = defaultOrderList;
 let orderItemList = defaultOrderItemList;
@@ -1029,26 +1053,26 @@ function initMap() {
     // 주소-좌표 변환 객체를 생성합니다
     var geocoder = new kakao.maps.services.Geocoder();
 
-    for(let i = 0; i <= defaultOrderList.length-1; i++){
-        let address =  defaultOrderList[i].shippingAddress;
-       
+    for (let i = 0; i <= defaultOrderList.length - 1; i++) {
+        let address = defaultOrderList[i].shippingAddress;
 
-    // 각 주소에 대해 좌표 검색 및 마커 생성
-    geocoder.addressSearch(address, function (result, status) {
-        // 정상적으로 검색이 완료됐으면 
-        if (status === kakao.maps.services.Status.OK) {
-            
-            var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-            
-            // 마커를 생성합니다
-            var marker = new kakao.maps.Marker({
-                position: coords
-            });
 
-            // 클러스터러에 마커를 추가합니다
-            clusterer.addMarker(marker);
-        }
-    });
+        // 각 주소에 대해 좌표 검색 및 마커 생성
+        geocoder.addressSearch(address, function (result, status) {
+            // 정상적으로 검색이 완료됐으면 
+            if (status === kakao.maps.services.Status.OK) {
+
+                var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+                // 마커를 생성합니다
+                var marker = new kakao.maps.Marker({
+                    position: coords
+                });
+
+                // 클러스터러에 마커를 추가합니다
+                clusterer.addMarker(marker);
+            }
+        });
     }
 }
 

@@ -168,7 +168,7 @@ border-radius: 10px; }
 .m_s_list > table > thead{
     background-color: #E2E8F0;
 }
-.m_s_list > table > thead > tr > th{    /* 추후에 nth인가 사용해서 width 설정하기. */
+.m_s_list > table > thead > tr > th{ 
     font-size: 17px; color: #0F172B;
     border-bottom: solid 1px #e9ebee; font-weight: 400;
     padding: 10px 0;

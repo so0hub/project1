@@ -152,7 +152,7 @@ function printResult(dataList) {
 
 
 
-// [3-3] 수정 함수
+// 수정 함수
 function stockUpdate(inventoryCode) {
     for (let index = 0; index <= inventories.length - 1; index++) {
         if (inventoryCode == inventories[index].inventoryCode) {

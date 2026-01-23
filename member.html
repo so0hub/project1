@@ -41,26 +41,28 @@
                     </div>
 
                     <!-- 초기 로딩 시 보일 실제 데이터 기반 카드 -->
-                    <div class="member-card" >
+                    <div class="member-card">
                         <div class="card-top">
                             <span class="member-name">김민준</span>
                             <span class="badge active">활성</span>
                         </div>
                         <div class="card-info">
-                            <div class="info-row"><span class="label">가입일:</span> <span class="value">2022-03-15</span></div>
+                            <div class="info-row"><span class="label">가입일:</span> <span class="value">2022-03-15</span>
+                            </div>
                             <div class="info-row"><span class="label">성별:</span> <span class="value">남</span></div>
                             <div class="info-row"><span class="label">나이:</span> <span class="value">28세</span></div>
                         </div>
                         <button class="btn-delete">회원탈퇴</button>
                     </div>
 
-                    <div class="member-card" >
+                    <div class="member-card">
                         <div class="card-top">
                             <span class="member-name">이서연</span>
                             <span class="badge active">활성</span>
                         </div>
                         <div class="card-info">
-                            <div class="info-row"><span class="label">가입일:</span> <span class="value">2022-05-22</span></div>
+                            <div class="info-row"><span class="label">가입일:</span> <span class="value">2022-05-22</span>
+                            </div>
                             <div class="info-row"><span class="label">성별:</span> <span class="value">여</span></div>
                             <div class="info-row"><span class="label">나이:</span> <span class="value">24세</span></div>
                         </div>
@@ -110,10 +112,17 @@
                                 </tr>
                             </tbody>
                         </table>
+
                     </div>
+                    <div id="map" style="width:500px;height:400px;"></div>
+                    <script type="text/javascript"
+                        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=dc879caeb8ec5f17221380f04d83fdc8&libraries=services,clusterer"></script>
+                    
                 </div>
+
             </div>
         </div> <!-- 본문 end -->
+
 
 
 
@@ -122,34 +131,41 @@
             <div id="footer_inner_top">
                 <div class="f_infor">
                     <h2>OurShop</h2>
-                    <div>홈쇼핑 판매자를 위한<br/>
-                         올인원 관리 솔루션</div>
+                    <div>홈쇼핑 판매자를 위한<br />
+                        올인원 관리 솔루션</div>
                     <div><img src="img/mail.png">support@shopadmin.com</div>
                     <div><img src="img/phone.png">1588-0000</div>
-                </div>                
+                </div>
                 <div class="f_link">
                     <ul>
-                        <li><h3>빠른 링크</h3></li>
+                        <li>
+                            <h3>빠른 링크</h3>
+                        </li>
                         <li><a href="index.html">제품통계</a></li>
                         <li><a href="product.html">제품관리</a></li>
-                        <li><a href="member.html">회원관리</a></li>                        
+                        <li><a href="member.html">회원관리</a></li>
                     </ul>
                 </div>
                 <div class="f_link">
                     <ul>
-                        <li><h3>고객 지원</h3></li>
+                        <li>
+                            <h3>고객 지원</h3>
+                        </li>
                         <li>도움말 센터</li>
                         <li>이용 약관</li>
                         <li>개인정보 처리방침</li>
                     </ul>
                 </div>
                 <div class="f_link">
-                    <ul><li><h3>고객센터 운영시간</h3></li>
-                        <li>평일:  09:00 - 18:00</li>
-                        <li>휴무일:  주말 및 공휴일</li>
-                        <li>점심시간:  12:00 - 13:00</li>
+                    <ul>
+                        <li>
+                            <h3>고객센터 운영시간</h3>
+                        </li>
+                        <li>평일: 09:00 - 18:00</li>
+                        <li>휴무일: 주말 및 공휴일</li>
+                        <li>점심시간: 12:00 - 13:00</li>
                     </ul>
-                </div>                
+                </div>
             </div>
         </div> <!-- 푸터 end -->
         <div id="footer_bottom">
@@ -162,7 +178,7 @@
     </div> <!-- 전체 end -->
 
 
-        <script src="/js/member.js"></script>
+    <script src="/js/member.js"></script>
 </body>
 
 </html>

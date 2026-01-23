@@ -6,7 +6,7 @@
 */
 let obj = [];
 
-// localStorage 활용 defaultProductList 호출
+// localStorage 활용 productList 호출
     let products = localStorage.getItem("productList");
     if( products == null ){
         products = [];
@@ -32,11 +32,11 @@ function productSearch() {
 
     if(productName==""&&brand==""&&priceMin==""&&priceMax==""&&categoryCode=='disabled'){alert("검색하실 상품 정보를 입력하십시오."); }
 
-    // 2. 입력받은 값 찾아서 넣기...
+    // 2. 입력받은 값 찾아서 넣기.
     for (let i = 0; i < products.length; i++) {
         let prd = products[i];
 
-        let SearchTrue = true; // 일단 맞음
+        let SearchTrue = true; // 검색 결과가 일치한다고 가정하기
         
         if (productName != "" && prd.productName.includes(productName) == false) {
             SearchTrue = false;
@@ -60,14 +60,14 @@ function productSearch() {
 }
 
 //호출
-    // localStorage 활용 defaultCategories 호출
+    // localStorage 활용 categories 호출
     let categories = localStorage.getItem("categories");
     if( categories == null ){
         categories = [];
     }else{
         categories = JSON.parse(categories);
     } 
-    // localStorage 활용 defaultInventories 호출
+    // localStorage 활용 inventories 호출
     let inventories = localStorage.getItem("inventories");
     if( inventories == null ){
         inventories = [];
@@ -112,11 +112,11 @@ function productPrint(){
 
 // [3-3] 수정함수
 function productUpdate(productCode) {
-    // 1. 어딨어 (재고는 안 건들고 상품 정보만 수정)
+    // 1. 수정하고자 하는 정보 찾기
     let productIndex = 0;
     for (let i = 0; i < products.length; i++) {
     if (products[i].productCode === productCode) {
-        productIndex = i; // 인덱스를 저장했다 기억해라
+        productIndex = i;  // 인덱스를 저장했다.
         break;}
     }
     if (productIndex === -1) {
@@ -128,7 +128,7 @@ function productUpdate(productCode) {
     const newBrand = prompt("수정할 브랜드명을 입력하시오.");
     const newPrice = prompt("수정할 가격을 입력하시오.");
 
-    // 3. 뭔가 입력했다면 바꾸기 (취소 안 눌렀다면 그냥 두기)
+    // 3. 뭔가 입력했다면 바꾸기
     if (newProductName !== null){products[productIndex].productName = newProductName;}
     if (newBrand !== null){products[productIndex].brand = newBrand;}
     if (newPrice !== null){products[productIndex].price = Number(newPrice);}
@@ -146,13 +146,7 @@ function productUpdate(productCode) {
     obj[objIndex].productName = products[productIndex].productName;
     obj[objIndex].brand = products[productIndex].brand;
     obj[objIndex].price = products[productIndex].price;
-    // // 2. 찾았을 경우(index가 -1이 아닐 때) 처리
-    // if (objIndex !== -1) {
-    //     // 스프레드(...) 대신 Object.assign을 사용하여 객체 복사
-    //     // 또는 새로운 빈 객체에 값을 하나하나 복사하는 방식입니다.
-    //     obj[objIndex] = Object.assign({}, products[productIndex]);
-    // }
-
+    
     // 6. 새로고침
     productPrint();
 }
